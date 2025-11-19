@@ -10,7 +10,9 @@ import {
 } from 'react-icons/si'
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
+import milanPhoto from './assets/milanphoto.JPG'
 import './App.css'
+import '../src/assets/milanphoto.jpg'
 
 const skills = [
   { label: 'Figma', icon: <SiFigma /> },
@@ -148,7 +150,7 @@ const App = () => {
             <div className="hero__orb">
               <div className="hero__ring" />
               <div className="hero__glow" />
-              <div className="hero__avatar">MT</div>
+              <img src={milanPhoto} alt="Milan Timalsena" className="hero__photo" />
             </div>
           </div>
         </section>
