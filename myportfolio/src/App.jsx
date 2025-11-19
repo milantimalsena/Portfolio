@@ -11,6 +11,7 @@ import {
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
 import milanPhoto from './assets/milanphoto.JPG'
+import milanLogo from './assets/milan logo.svg'
 import './App.css'
 import '../src/assets/milanphoto.jpg'
 
@@ -121,7 +122,7 @@ const App = () => {
   return (
     <div className="app">
       <header className="nav-bar">
-        <span className="nav-brand">Milan Timalsena</span>
+        <img src={milanLogo} alt="Milan Logo" className="nav-logo" />
         <nav aria-label="Primary" className="nav-links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>

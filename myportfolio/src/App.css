@@ -57,6 +57,20 @@
   background-clip: text;
 }
 
+.nav-logo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.15));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 20px;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.25));
+}
+
 .nav-links {
   display: flex;
   gap: 1.2rem;
@@ -179,12 +193,13 @@ main {
 .hero__visual {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 2rem;
 }
 
 .hero__orb {
   position: relative;
-  width: clamp(280px, 45vw, 420px);
+  width: clamp(320px, 50vw, 500px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05));
@@ -194,6 +209,7 @@ main {
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
   border: 1.5px solid rgba(139, 92, 246, 0.15);
+  filter: drop-shadow(0 15px 35px rgba(139, 92, 246, 0.15));
 }
 
 .hero__ring {
@@ -230,14 +246,18 @@ main {
 .hero__photo {
   position: relative;
   z-index: 1;
-  width: 65%;
+  width: 70%;
   aspect-ratio: 1 / 1;
   border-radius: 30%;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(139, 92, 246, 0.3);
   transition: transform 0.3s ease;
+  filter: none;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero__photo:hover {
@@ -650,7 +670,12 @@ main {
   }
 
   .hero__orb {
-    width: clamp(200px, 90vw, 300px);
+    width: clamp(200px, 90vw, 320px);
+  }
+
+  .hero__visual {
+    padding-right: 0;
+    justify-content: center;
   }
 
   .projects-grid,
