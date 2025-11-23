@@ -12,6 +12,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
 import milanPhoto from './assets/milanphoto.JPG'
 import milanLogo from './assets/milan logo.svg'
+import coverImage from './assets/milantimalsena cover.jpg'
 import './App.css'
 
 const skills = [
@@ -156,7 +157,7 @@ const App = () => {
         </section>
 
         <section className="panel reveal" id="about">
-          <div className="section-heading">
+          <div className="section-heading" style={{ backgroundImage: `url(${coverImage})` }}>
             <p className="eyebrow">About</p>
             <h2>Curious about design and code</h2>
           </div>

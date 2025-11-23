@@ -290,13 +290,42 @@ main {
 
 .section-heading {
   margin-bottom: 2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem 0;
+  border-radius: 1.2rem;
+  position: relative;
+}
+
+.section-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 1.2rem;
+  z-index: 1;
+}
+
+.section-heading p,
+.section-heading h2 {
+  position: relative;
+  z-index: 2;
+  padding: 0 2rem;
 }
 
 .section-heading h2 {
   font-size: clamp(2rem, 4vw, 2.8rem);
   margin: 0.5rem 0 0;
-  color: #111827;
+  color: #fff;
   letter-spacing: -0.01em;
+}
+
+.section-heading .eyebrow {
+  color: #ec4899;
 }
 
 .eyebrow {
