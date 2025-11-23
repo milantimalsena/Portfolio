@@ -13,7 +13,6 @@ import { HiOutlineMail } from 'react-icons/hi'
 import milanPhoto from './assets/milanphoto.JPG'
 import milanLogo from './assets/milan logo.svg'
 import './App.css'
-import '../src/assets/milanphoto.jpg'
 
 const skills = [
   { label: 'Figma', icon: <SiFigma /> },
