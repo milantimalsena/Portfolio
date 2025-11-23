@@ -158,8 +158,7 @@ const App = () => {
 
         <section className="panel reveal" id="about">
           <div className="section-heading" style={{ backgroundImage: `url(${coverImage})` }}>
-            <p className="eyebrow">About</p>
-            <h2>Curious about design and code</h2>
+            
           </div>
           <p className="lead">
             I’m currently learning design and frontend development. I enjoy working on creative ideas and building
