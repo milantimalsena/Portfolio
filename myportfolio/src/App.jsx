@@ -245,6 +245,7 @@ const App = () => {
               <ContactLink href="https://github.com/milantimalsena" icon={<FaGithub />} label="github.com/milantimalsena" />
               <ContactLink href="https://www.linkedin.com/in/milan-timalsena-373782353/" icon={<FaLinkedin />} label="LinkedIn" />
               <ContactLink href="https://www.instagram.com/me_learn" icon={<FaInstagram />} label="@me_learn" />
+              <ContactLink href="https://milantimalsena.vercel.app/" icon={<FaGithub />} label="Visit Portfolio Live" />
             </div>
             <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
               <label>
