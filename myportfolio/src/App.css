@@ -293,9 +293,13 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 2rem 0;
+  padding: 4rem 2rem;
   border-radius: 1.2rem;
   position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-heading::before {
@@ -314,7 +318,7 @@ main {
 .section-heading h2 {
   position: relative;
   z-index: 2;
-  padding: 0 2rem;
+  margin: 0;
 }
 
 .section-heading h2 {
