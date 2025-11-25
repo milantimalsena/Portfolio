@@ -8,7 +8,7 @@ import {
   SiReact,
   SiFlutter,
 } from 'react-icons/si'
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaInstagram, FaGlobe } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
 import milanPhoto from './assets/milanphoto.JPG'
 import milanLogo from './assets/milan logo.svg'
@@ -245,7 +245,7 @@ const App = () => {
               <ContactLink href="https://github.com/milantimalsena" icon={<FaGithub />} label="github.com/milantimalsena" />
               <ContactLink href="https://www.linkedin.com/in/milan-timalsena-373782353/" icon={<FaLinkedin />} label="LinkedIn" />
               <ContactLink href="https://www.instagram.com/me_learn" icon={<FaInstagram />} label="@me_learn" />
-              <ContactLink href="https://milantimalsena.vercel.app/" icon={<FaGithub />} label="Visit Portfolio Live" />
+              <ContactLink href="https://milantimalsena.vercel.app/" icon={<FaGlobe />} label="Visit Portfolio Live" />
             </div>
             <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
               <label>

@@ -654,9 +654,59 @@ main {
   transform: translateY(0);
 }
 
+@media (max-width: 1024px) {
+  .nav-bar {
+    top: 1.2rem;
+    width: calc(100% - 2.4rem);
+    margin: 0 1.2rem;
+  }
+
+  .nav-logo {
+    height: 2.2rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  main {
+    padding: 4rem 1.2rem 5rem;
+  }
+
+  .hero {
+    gap: 2.5rem;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+  }
+
+  .panel {
+    padding: 3rem clamp(1.2rem, 3vw, 2.5rem);
+  }
+
+  .section-heading {
+    min-height: 250px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+}
+
 @media (max-width: 900px) {
   .nav-links {
-    display: none;
+    gap: 0.6rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
   }
 
   .hero {
@@ -676,34 +726,65 @@ main {
     justify-content: center;
   }
 
+  .hero__content h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  .hero__tagline {
+    font-size: 1.1rem;
+  }
+
   .panel {
     padding: 2.6rem 1.8rem;
+    margin-top: 4rem;
+  }
+
+  .section-heading {
+    min-height: 220px;
+    padding: 3rem 1.5rem;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
   }
 
   .contact-content {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero__visual {
+    padding-right: 1rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .nav-bar {
-    top: 1rem;
-    padding: 0.9rem 1.2rem;
-    width: calc(100% - 2rem);
-    margin: 0 1rem;
+    top: 0.8rem;
+    width: calc(100% - 1.6rem);
+    margin: 0 0.8rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+    display: none;
+  }
+
+  .nav-logo {
+    height: 2rem;
   }
 
   main {
-    padding: 4rem 1rem 3rem;
+    padding: 3rem 1rem 4rem;
   }
 
-  .panel {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  .hero {
+    padding: 1.5rem 0;
   }
 
   .hero__orb {
-    width: clamp(200px, 90vw, 320px);
+    width: clamp(240px, 70vw, 380px);
   }
 
   .hero__visual {
@@ -711,43 +792,378 @@ main {
     justify-content: center;
   }
 
-  .projects-grid,
-  .skills-grid {
-    grid-template-columns: 1fr;
+  .panel {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    padding: 2.5rem clamp(1rem, 3vw, 2rem);
+    margin-top: 3.5rem;
   }
 
-  .pill-list {
-    gap: 0.6rem;
-  }
-
-  .timeline {
-    padding-left: 1rem;
-  }
-
-  .timeline::before {
-    left: 0.4rem;
-  }
-
-  .timeline-marker {
-    left: -0.4rem;
-  }
-
-  .hero__content h1 {
-    font-size: clamp(2rem, 6vw, 2.8rem);
+  .section-heading {
+    min-height: 200px;
+    padding: 2.5rem 1rem;
+    margin-bottom: 1.8rem;
   }
 
   .section-heading h2 {
     font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
+  .eyebrow {
+    font-size: 0.8rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .pill-list {
+    gap: 0.5rem;
+  }
+
+  .pill-list li {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1.1rem 1.3rem;
+    gap: 0.8rem;
+  }
+
+  .skill-label {
+    font-size: 0.9rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .project-card {
+    padding: 1.6rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .tag-list li {
+    font-size: 0.8rem;
+  }
+
+  .timeline {
+    padding-left: 1rem;
+    margin-top: 2rem;
+  }
+
+  .timeline::before {
+    left: 0.4rem;
+    top: 0.2rem;
+  }
+
+  .timeline-marker {
+    width: 0.8rem;
+    height: 0.8rem;
+    top: 0.2rem;
+  }
+
+  .timeline-item {
+    padding-left: 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .timeline-content {
+    padding: 1.1rem 1.4rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1rem;
+  }
+
+  .contact-link {
+    gap: 0.8rem;
+    padding: 0.9rem 1.1rem;
+  }
+
+  .contact-form {
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.9rem 1rem;
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-bar {
+    top: 0.5rem;
+    padding: 0.7rem 1rem;
+    width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .nav-logo {
+    height: 1.8rem;
+  }
+
+  main {
+    padding: 3rem 0.75rem 3rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .hero__eyebrow {
+    font-size: 0.8rem;
+  }
+
+  .hero__tagline {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__actions {
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__orb {
+    width: clamp(180px, 85vw, 280px);
+  }
+
+  .panel {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3rem;
+    padding: 1.8rem 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .section-heading {
+    min-height: auto;
+    padding: 2rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .section-heading p,
+  .section-heading h2 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+
+  .section-heading .eyebrow {
+    font-size: 0.75rem;
+  }
+
+  .lead {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .pill-list {
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .pill-list li {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .skill-card {
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    gap: 0.7rem;
+  }
+
+  .skill-icon {
+    font-size: 1.5rem;
+  }
+
+  .skill-label {
+    font-size: 0.85rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1.3rem;
+    gap: 1rem;
+  }
+
+  .project-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+  }
+
+  .tag-list {
+    gap: 0.5rem;
+  }
+
+  .tag-list li {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .timeline {
+    padding-left: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 0.3rem;
+  }
+
+  .timeline-marker {
+    width: 0.7rem;
+    height: 0.7rem;
+    left: -0.25rem;
+    top: 0.25rem;
+  }
+
+  .timeline-item {
+    padding-left: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-period {
+    font-size: 0.75rem;
+  }
+
+  .timeline-content {
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+
   .contact-link {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.4rem;
     width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
   }
 
   .contact-details {
     flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-form {
+    gap: 0.9rem;
+  }
+
+  .contact-form label {
+    gap: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem 0.9rem;
+    border-radius: 0.8rem;
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .footer {
+    padding: 2rem 1rem 2.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    top: 0.3rem;
+    width: calc(100% - 0.6rem);
+    margin: 0 0.3rem;
+  }
+
+  main {
+    padding: 2.5rem 0.5rem 2.5rem;
+  }
+
+  .panel {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.5rem 0.8rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero {
+    gap: 1.5rem;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+  }
+
+  .hero__orb {
+    width: clamp(160px, 75vw, 240px);
+  }
+
+  .section-heading {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    font-size: 0.8rem;
   }
 }
