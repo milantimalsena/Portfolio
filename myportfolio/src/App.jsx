@@ -418,8 +418,9 @@ const App = () => {
       </main>
 
       <footer className="footer">
-        <p>
-          © {new Date().getFullYear()} {profile.name}. Built with React + Vite.
+        {/* center this element */}
+        <p className='footer__text'>
+          © {new Date().getFullYear()} {profile.name}.
         </p>
       </footer>
     </div>
