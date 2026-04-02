@@ -6,7 +6,7 @@ const projects = [
   {
     title: 'Velvra – E-commerce Footwear Website',
     description: 'A premium footwear e-commerce platform with sleek UI, advanced filtering, and a robust cart system demonstrating high-conversion design patterns.',
-    tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+    tech: ['HTML  /CSS', 'JavaScript'],
     live: '#',
     github: 'https://github.com/milantimalsena/Velvra-A_e-commerce-Footwear-Website',
     featured: true
@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'Birat TV',
     description: 'A responsive news broadcasting portal offering live streaming and article management with high performance media delivery.',
-    tech: ['HTML/CSS', 'JavaScript', 'Frontend Architecture'],
+    tech: ['React', 'Vite', 'JavaScript', 'Tailwind CSS',],
     live: 'http://www.BiratTv.com.np',
     github: 'https://github.com/milantimalsena',
     featured: false
@@ -24,13 +24,13 @@ const projects = [
     description: 'A travel booking and exposition platform showcasing regional tourism with elegant imagery and seamless navigation.',
     tech: ['React', 'Responsive Design', 'API Integration'],
     live: 'http://Easterntravelmart2026.com',
-    github: 'https://github.com/milantimalsena',
+    github: 'https://easterntravelmart.com/',
     featured: false
   },
   {
     title: 'Saral Sewa',
     description: 'A service aggregator offering a simplified gateway to public services through an accessible and user-friendly interface.',
-    tech: ['Frontend Framework', 'UI/UX', 'Accessibility'],
+    tech: ['Flutter', 'Dart', 'django', 'Rest API', 'SQLite'],
     live: '#',
     github: 'https://github.com/milantimalsena',
     featured: false
@@ -38,7 +38,7 @@ const projects = [
   {
     title: 'Art Gallery Management System',
     description: 'A management dashboard for tracking artworks, artists, and exhibitions efficiently with data visualization.',
-    tech: ['React', 'State Management', 'Dashboards'],
+    tech: ['Java'],
     live: '#',
     github: 'https://github.com/milantimalsena/Art-Gallery-tracking-Management-system',
     featured: false
@@ -46,7 +46,7 @@ const projects = [
   {
     title: 'Inventory Management System',
     description: 'A robust shoe inventory tracker ensuring real-time stock updates, low-stock alerts, and intuitive data entry.',
-    tech: ['JavaScript', 'System Architecture', 'CRUD Operations'],
+    tech: ['python', 'CRUD Operations'],
     live: '#',
     github: 'https://github.com/milantimalsena/shoe-inventory-management-system',
     featured: false
@@ -106,13 +106,13 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-              
+
               <div className={`bg-muted border-t md:border-t-0 md:border-l border-[var(--card-border)] relative overflow-hidden flex items-center justify-center p-8 ${project.featured ? 'lg:w-1/2 min-h-[300px]' : 'h-48'}`}>
                 {/* Abstract project placeholder using gradients until actual screenshots are piped */}
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-indigo/20 to-brand-cyan/20 group-hover:scale-105 transition-transform duration-700 ease-out"></div>
                 <div className="relative z-10 glass-panel p-4 rounded-xl shadow-2xl skew-y-3 group-hover:skew-y-0 transition-all duration-500">
                   <h4 className="font-display font-bold text-center tracking-tight opacity-70">
-                     {project.title} Preview
+                    {project.title} Preview
                   </h4>
                 </div>
               </div>
