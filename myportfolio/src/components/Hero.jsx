@@ -48,22 +48,12 @@ export default function Hero() {
               View Projects <ArrowRight size={18} />
             </a>
             <a
-              href="#"
+              href="/Resume/Milan-Timalsena-cv.pdf"
+              download
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-panel font-semibold hover:bg-muted/50 hover:scale-105 transition-all"
             >
               <Download size={18} /> Resume
             </a>
-          </div>
-
-          <div className="flex items-center gap-8 mt-4 pt-8 border-t border-[var(--card-border)] w-full">
-            <div className="flex flex-col">
-              <span className="text-3xl font-display font-bold text-foreground">3+</span>
-              <span className="text-sm text-muted-foreground">Years Experience</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-3xl font-display font-bold text-foreground">20+</span>
-              <span className="text-sm text-muted-foreground">Projects Completed</span>
-            </div>
           </div>
         </motion.div>
 
