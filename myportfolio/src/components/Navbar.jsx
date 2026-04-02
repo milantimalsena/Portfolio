@@ -42,7 +42,7 @@ export default function Navbar() {
         )}>
           {/* Logo */}
           <a href="#home" className="relative group">
-            <img src={milanLogo} alt="Milan Logo" className="h-8 w-auto" />
+            <img src={milanLogo} alt="Milan Logo" className="h-8 w-auto rounded-lg" />
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-indigo to-brand-cyan transition-all duration-300 group-hover:w-full"></span>
           </a>
 

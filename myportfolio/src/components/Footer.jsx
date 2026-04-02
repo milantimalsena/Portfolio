@@ -10,7 +10,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center md:items-start">
           <a href="#home">
-            <img src={milanLogo} alt="Milan Logo" className="h-8 w-auto" />
+            <img src={milanLogo} alt="Milan Logo" className="h-8 w-auto rounded-lg" />
           </a>
           <p className="text-sm text-muted-foreground mt-2 text-center md:text-left max-w-xs">
             Designing and coding beautiful, premium experiences for the web.
