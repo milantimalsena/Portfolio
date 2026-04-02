@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Moon, Sun } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
 import { cn } from '../lib/utils'
+import milanLogo from '../assets/milan logo.svg'
 
 const links = [
   { name: 'Home', href: '#home' },
@@ -40,8 +41,8 @@ export default function Navbar() {
           scrolled ? 'glass-panel shadow-lg' : 'bg-transparent'
         )}>
           {/* Logo */}
-          <a href="#home" className="text-xl font-display font-bold tracking-tight text-foreground relative group">
-            Milan<span className="text-brand-cyan">.</span>
+          <a href="#home" className="relative group">
+            <img src={milanLogo} alt="Milan Logo" className="h-8 w-auto" />
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-indigo to-brand-cyan transition-all duration-300 group-hover:w-full"></span>
           </a>
 
