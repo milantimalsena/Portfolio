@@ -1,28 +1,17 @@
 import { motion } from 'framer-motion'
-import {
-  FaCss3Alt,
-  FaFigma,
-  FaGitAlt,
-  FaHtml5,
-  FaJs,
-  FaReact,
-} from 'react-icons/fa'
-import { SiFramer, SiGithub, SiTailwindcss, SiVite } from 'react-icons/si'
 
 const skills = [
-  { name: 'React.js', icon: FaReact },
-  { name: 'Vite', icon: SiVite },
-  { name: 'Tailwind CSS', icon: SiTailwindcss },
-  { name: 'Framer Motion', icon: SiFramer },
-  { name: 'JavaScript', icon: FaJs },
-  { name: 'HTML5 / CSS3', icon: [FaHtml5, FaCss3Alt] },
-  { name: 'Git & GitHub', icon: [FaGitAlt, SiGithub] },
-  { name: 'Figma', icon: FaFigma },
+  { name: 'React.js', icon: '⚛️' },
+  { name: 'Vite', icon: '⚡' },
+  { name: 'Tailwind CSS', icon: '🎨' },
+  { name: 'Framer Motion', icon: '🎬' },
+  { name: 'JavaScript', icon: '📜' },
+  { name: 'HTML5 / CSS3', icon: '🌐' },
+  { name: 'Git & GitHub', icon: '🐙' },
+  { name: 'Figma', icon: '🖋️' },
 ]
 
 export default function Skills() {
-  const normalizeIcons = (icon) => (Array.isArray(icon) ? icon : [icon])
-
   return (
     <section id="skills" className="py-24 relative z-10">
       <div className="mx-auto max-w-6xl px-6">
@@ -38,10 +27,7 @@ export default function Skills() {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => {
-            const icons = normalizeIcons(skill.icon)
-
-            return (
+          {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -51,15 +37,10 @@ export default function Skills() {
               whileHover={{ y: -5, scale: 1.05 }}
               className="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center cursor-default group"
             >
-              <div className="flex items-center gap-2 text-4xl text-brand-cyan group-hover:scale-110 transition-transform">
-                {icons.map((IconComponent, iconIndex) => (
-                  <IconComponent key={`${skill.name}-${iconIndex}`} aria-hidden="true" />
-                ))}
-              </div>
+              <div className="text-4xl group-hover:scale-110 transition-transform">{skill.icon}</div>
               <h4 className="font-semibold text-foreground group-hover:text-brand-cyan transition-colors">{skill.name}</h4>
             </motion.div>
-            )
-          })}
+          ))}
         </div>
       </div>
     </section>
