@@ -1,65 +1,125 @@
 import { motion } from 'framer-motion'
 import {
-  FaCss3Alt,
-  FaFigma,
-  FaGitAlt,
-  FaHtml5,
-  FaJs,
-  FaReact,
-} from 'react-icons/fa'
-import { SiFramer, SiGithub, SiTailwindcss, SiVite } from 'react-icons/si'
+  SiReact, SiNextdotjs, SiVite, SiTailwindcss, SiFramer, SiTypescript,
+  SiNodedotjs, SiPython, SiDjango, SiFlutter, SiDart, SiExpress,
+  SiMongodb, SiPostgresql, SiMysql, SiSqlite,
+  SiFirebase, SiVercel, SiNetlify, SiDocker, SiAwsamplify,
+  SiFigma, SiAdobe, SiCanva, SiNotion,
+  SiGit, SiGithub, SiPostman, SiLinux,
+} from 'react-icons/si'
+import { FaJava, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa'
 
-const skills = [
-  { name: 'React.js', icon: FaReact },
-  { name: 'Vite', icon: SiVite },
-  { name: 'Tailwind CSS', icon: SiTailwindcss },
-  { name: 'Framer Motion', icon: SiFramer },
-  { name: 'JavaScript', icon: FaJs },
-  { name: 'HTML5 / CSS3', icon: [FaHtml5, FaCss3Alt] },
-  { name: 'Git & GitHub', icon: [FaGitAlt, SiGithub] },
-  { name: 'Figma', icon: FaFigma },
+const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'React', icon: SiReact },
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'Vite', icon: SiVite },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+      { name: 'Framer Motion', icon: SiFramer },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'JavaScript', icon: FaJs },
+      { name: 'HTML5', icon: FaHtml5 },
+      { name: 'CSS3', icon: FaCss3Alt },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'Python', icon: SiPython },
+      { name: 'Django', icon: SiDjango },
+      { name: 'Express', icon: SiExpress },
+      { name: 'Java', icon: FaJava },
+      { name: 'Dart', icon: SiDart },
+    ],
+  },
+  {
+    title: 'Database',
+    skills: [
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'SQLite', icon: SiSqlite },
+    ],
+  },
+  {
+    title: 'Cloud & DevOps',
+    skills: [
+      { name: 'Firebase', icon: SiFirebase },
+      { name: 'Vercel', icon: SiVercel },
+      { name: 'Netlify', icon: SiNetlify },
+      { name: 'Docker', icon: SiDocker },
+      { name: 'AWS Amplify', icon: SiAwsamplify },
+    ],
+  },
+  {
+    title: 'Design',
+    skills: [
+      { name: 'Figma', icon: SiFigma },
+      { name: 'Adobe', icon: SiAdobe },
+      { name: 'Canva', icon: SiCanva },
+      { name: 'Notion', icon: SiNotion },
+    ],
+  },
+  {
+    title: 'Tools',
+    skills: [
+      { name: 'Git', icon: SiGit },
+      { name: 'GitHub', icon: SiGithub },
+      { name: 'Postman', icon: SiPostman },
+      { name: 'Linux', icon: SiLinux },
+    ],
+  },
 ]
 
 export default function Skills() {
-  const normalizeIcons = (icon) => (Array.isArray(icon) ? icon : [icon])
-
   return (
-    <section id="skills" className="py-24 relative z-10">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="skills" className="py-24 md:py-32 relative z-10 bg-section/50">
+      <div className="mx-auto max-w-container px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Tech Arsenal</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-brand-indigo to-brand-cyan mx-auto rounded-full"></div>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
+            Skills
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-foreground leading-tight mb-6">
+            Tools &<br />
+            <span className="text-primary">technologies</span>
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => {
-            const icons = normalizeIcons(skill.icon)
-
-            return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, catIndex) => (
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.05 }}
-              className="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center cursor-default group"
+              key={category.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.5, delay: catIndex * 0.1, ease: [0.25, 0.1, 0, 1] }}
+              className="p-6 bg-card border border-card-border rounded-2xl hover:border-muted-foreground/20 transition-all duration-500"
             >
-              <div className="flex items-center gap-2 text-4xl text-brand-cyan group-hover:scale-110 transition-transform">
-                {icons.map((IconComponent, iconIndex) => (
-                  <IconComponent key={`${skill.name}-${iconIndex}`} aria-hidden="true" />
+              <h3 className="text-lg font-display font-semibold text-foreground mb-5">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted-foreground bg-muted rounded-full border border-card-border hover:border-muted-foreground/30 hover:text-foreground transition-all duration-200"
+                  >
+                    <skill.icon size={14} className="shrink-0" />
+                    {skill.name}
+                  </span>
                 ))}
               </div>
-              <h4 className="font-semibold text-foreground group-hover:text-brand-cyan transition-colors">{skill.name}</h4>
             </motion.div>
-            )
-          })}
+          ))}
         </div>
       </div>
     </section>

@@ -1,68 +1,114 @@
 import { motion } from 'framer-motion'
+import { Briefcase, GraduationCap } from 'lucide-react'
 
-const timeline = [
+const experience = [
   {
-    role: "Frontend Developer",
-    company: "Freelance",
-    period: "2024 - Present",
-    description: "Building premium high-performance web applications, specialized in React, Vite, and modern CSS. Delivering tailored solutions for diverse client bases including e-commerce, news media, and content management."
+    role: 'Software Developer',
+    company: 'Kafals',
+    period: '2024 - Present',
+    type: 'work',
+    description: 'Leading full-stack development for multiple high-impact digital platforms.',
+    highlights: [
+      'Eastern Tourism Mart — Regional tourism booking platform',
+      'Madhesh Tourism Mart — Cultural tourism marketplace',
+      'Birat TV — News broadcasting portal with live streaming',
+      'Election Campaign Website — Political campaign management system',
+    ],
   },
   {
-    role: "UI/UX Designer",
-    company: "Self-Employed",
-    period: "2023 - 2024",
-    description: "Creating wireframes, interactive prototypes, and user flows to establish highly accessible, conversion-driven digital experiences."
+    role: 'Freelance Designer & Developer',
+    company: 'Self-Employed',
+    period: '2023 - Present',
+    type: 'work',
+    description: 'Delivering premium web solutions to diverse clients across industries.',
+    highlights: [
+      'Built 20+ web applications and marketing sites',
+      'Specialized in React, Flutter, and modern CSS architectures',
+      'End-to-end product design and development workflow',
+    ],
   },
   {
-    role: "Graphic Design Foundation",
-    company: "Training",
-    period: "2022 - 2023",
-    description: "Mastering layout composition, color theory, and advanced typography which now securely fuels my frontend design engineering capabilities."
-  }
+    role: 'BSc (Hons) Computing',
+    company: 'University',
+    period: '2022 - 2025',
+    type: 'education',
+    description: 'Comprehensive computing degree with focus on software engineering and design.',
+    highlights: [
+      'Full-stack development and database management',
+      'Human-computer interaction and UI/UX principles',
+      'Software architecture and design patterns',
+    ],
+  },
 ]
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 relative z-10">
-      <div className="mx-auto max-w-4xl px-6">
+    <section id="experience" className="py-24 md:py-32 relative z-10 bg-section/50">
+      <div className="mx-auto max-w-container px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Experience</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-brand-indigo to-brand-cyan mx-auto rounded-full"></div>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
+            Experience
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-foreground leading-tight mb-6">
+            Where I have<br />
+            <span className="text-primary">worked & grown</span>
+          </h2>
         </motion.div>
 
-        <div className="relative border-l-2 border-primary/20 ml-4 md:ml-0 md:pl-10 space-y-12">
-          {timeline.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative pl-8 md:pl-0"
-            >
-              <div className="absolute -left-[45px] md:-left-[49px] top-1 w-6 h-6 rounded-full bg-background border-4 border-primary z-10"></div>
-              <div className="glass-panel p-6 md:p-8 rounded-3xl hover:border-brand-cyan/50 transition-colors">
-                <div className="flex flex-col md:flex-row md:justify-between mb-4 md:items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold font-display text-foreground">{item.role}</h3>
-                    <h4 className="text-lg font-medium text-brand-cyan">{item.company}</h4>
-                  </div>
-                  <span className="text-sm font-semibold tracking-wider text-muted-foreground uppercase mt-2 md:mt-0 px-3 py-1 bg-muted rounded-full inline-block w-max">
-                    {item.period}
-                  </span>
+        <div className="relative">
+          <div className="absolute left-[23px] md:left-[31px] top-0 bottom-0 w-px bg-card-border" aria-hidden="true" />
+
+          <div className="space-y-8">
+            {experience.map((item, index) => (
+              <motion.div
+                key={item.role + item.company}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.1, 0, 1] }}
+                className="relative pl-14 md:pl-16"
+              >
+                <div className="absolute left-0 top-0 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-card border border-card-border flex items-center justify-center shadow-sm">
+                  {item.type === 'education' ? (
+                    <GraduationCap size={20} className="text-primary" />
+                  ) : (
+                    <Briefcase size={20} className="text-primary" />
+                  )}
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="p-6 md:p-8 bg-card border border-card-border rounded-2xl hover:border-muted-foreground/20 transition-all duration-500">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground">
+                        {item.role}
+                      </h3>
+                      <p className="text-primary font-medium mt-0.5">{item.company}</p>
+                    </div>
+                    <span className="text-xs font-semibold tracking-wider text-muted-foreground px-3 py-1.5 bg-muted rounded-full inline-flex items-center w-fit whitespace-nowrap">
+                      {item.period}
+                    </span>
+                  </div>
+
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
+
+                  <ul className="space-y-2" role="list">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-3 text-sm text-foreground/80">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
