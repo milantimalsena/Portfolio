@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap } from 'lucide-react'
+import { Briefcase } from 'lucide-react'
 
 const experience = [
   {
     role: 'Software Developer',
     company: 'Kafals',
-    period: '2024 - Present',
+    period: '2025 - Present',
     type: 'work',
     description: 'Leading full-stack development for multiple high-impact digital platforms.',
     highlights: [
@@ -25,18 +25,6 @@ const experience = [
       'Built 20+ web applications and marketing sites',
       'Specialized in React, Flutter, and modern CSS architectures',
       'End-to-end product design and development workflow',
-    ],
-  },
-  {
-    role: 'BSc (Hons) Computing',
-    company: 'University',
-    period: '2022 - 2025',
-    type: 'education',
-    description: 'Comprehensive computing degree with focus on software engineering and design.',
-    highlights: [
-      'Full-stack development and database management',
-      'Human-computer interaction and UI/UX principles',
-      'Software architecture and design patterns',
     ],
   },
 ]
@@ -75,11 +63,7 @@ export default function Experience() {
                 className="relative pl-14 md:pl-16"
               >
                 <div className="absolute left-0 top-0 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-card border border-card-border flex items-center justify-center shadow-sm">
-                  {item.type === 'education' ? (
-                    <GraduationCap size={20} className="text-primary" />
-                  ) : (
-                    <Briefcase size={20} className="text-primary" />
-                  )}
+                  <Briefcase size={20} className="text-primary" />
                 </div>
 
                 <div className="p-6 md:p-8 bg-card border border-card-border rounded-2xl hover:border-muted-foreground/20 transition-all duration-500">
