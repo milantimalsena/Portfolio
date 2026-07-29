@@ -93,7 +93,7 @@ export default function Hero() {
                 <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
-                href="/Resume/Milan-Timalsena-cv.pdf"
+                href="/Resume/Milan-Timalsena-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 px-6 py-3.5 bg-card border border-card-border text-foreground font-semibold rounded-2xl hover:border-muted-foreground/30 transition-all duration-300"

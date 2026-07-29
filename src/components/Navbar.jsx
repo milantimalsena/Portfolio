@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3">
             <a
-              href="/Resume/Milan-Timalsena-cv.pdf"
+              href="/Resume/Milan-Timalsena-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-primary bg-primary/10 hover:bg-primary/20 rounded-xl transition-all duration-200"
@@ -143,7 +143,7 @@ export default function Navbar() {
               </ul>
               <div className="mt-auto pt-6 border-t border-card-border">
                 <a
-                  href="/Resume/Milan-Timalsena-cv.pdf"
+                  href="/Resume/Milan-Timalsena-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-semibold text-primary bg-primary/10 hover:bg-primary/20 rounded-xl transition-all"

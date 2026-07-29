@@ -10,7 +10,7 @@ const items = [
   { id: 'skills', label: 'Skills', icon: Code, href: '#skills' },
   { id: 'blog', label: 'Blog', icon: BookOpen, href: '#blog' },
   { id: 'contact', label: 'Contact', icon: Mail, href: '#contact' },
-  { id: 'resume', label: 'Download Resume', icon: Download, href: '/Resume/Milan-Timalsena-cv.pdf' },
+  { id: 'resume', label: 'Download Resume', icon: Download, href: '/Resume/Milan-Timalsena-Resume.pdf' },
 ]
 
 export default function CommandPalette() {
