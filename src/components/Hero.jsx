@@ -67,18 +67,28 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-semibold tracking-tight text-foreground leading-[1.05]"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-semibold tracking-tight text-foreground leading-[1.08]"
             >
-              Milan<br />
-              <span className="text-primary">Timalsena</span>
+              Milan Timalsena
+              <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-primary mt-2">
+                Full-Stack Developer & UI/UX Designer
+              </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-lg text-pretty"
+              className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg text-pretty"
             >
-              Designing and engineering modern digital products that combine elegant design with scalable software.
+              Milan designs and builds modern digital products from interface design through development and deployment.
             </motion.p>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-2 text-xs font-medium text-muted-foreground bg-card/60 backdrop-blur-sm border border-card-border px-3.5 py-2 rounded-xl"
+            >
+              <span className="text-primary font-semibold">Focus:</span>
+              <span>React · Node.js · JavaScript · UI/UX · MongoDB</span>
+            </motion.div>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-2">
               <a
@@ -87,19 +97,20 @@ export default function Hero() {
                   e.preventDefault()
                   document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground font-semibold rounded-2xl hover:brightness-110 transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground font-semibold rounded-2xl hover:brightness-110 transition-all duration-300 shadow-md shadow-primary/20"
               >
-                View Projects
+                View My Work
                 <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
-                href="/Resume/Milan-Timalsena-Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
+                }}
                 className="group inline-flex items-center gap-2 px-6 py-3.5 bg-card border border-card-border text-foreground font-semibold rounded-2xl hover:border-muted-foreground/30 transition-all duration-300"
               >
-                <FileText size={18} />
-                Download Resume
+                Let's Work Together
               </a>
             </motion.div>
           </motion.div>

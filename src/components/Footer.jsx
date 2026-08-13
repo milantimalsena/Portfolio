@@ -15,28 +15,43 @@ export default function Footer() {
       <div className="mx-auto max-w-container px-6 py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <a href="#home" onClick={handleClick('#home')} aria-label="Back to top">
+            <a href="#home" onClick={handleClick('#home')} aria-label="Milan Timalsena - Back to top">
               <img src={milanLogo} alt="Milan Timalsena" className="h-8 w-auto rounded-[5px]" />
             </a>
-            <p className="text-sm text-muted-foreground max-w-xs text-center md:text-left">
-              Designing and engineering modern digital products that combine elegant design with scalable software.
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-xs text-center md:text-left">
+              Milan Timalsena — Full-Stack Developer & UI/UX Designer crafting real digital products.
             </p>
           </div>
 
           <nav aria-label="Footer navigation">
-            <ul className="flex items-center gap-6">
+            <ul className="flex flex-wrap items-center justify-center gap-6 text-sm">
               <li>
-                <a href="#about" onClick={handleClick('#about')} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#projects" onClick={handleClick('#projects')} className="text-muted-foreground hover:text-foreground transition-colors">
+                  Work
+                </a>
+              </li>
+              <li>
+                <a href="#services" onClick={handleClick('#services')} className="text-muted-foreground hover:text-foreground transition-colors">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#creative" onClick={handleClick('#creative')} className="text-muted-foreground hover:text-foreground transition-colors">
+                  Creative
+                </a>
+              </li>
+              <li>
+                <a href="#about" onClick={handleClick('#about')} className="text-muted-foreground hover:text-foreground transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#projects" onClick={handleClick('#projects')} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Projects
+                <a href="#skills" onClick={handleClick('#skills')} className="text-muted-foreground hover:text-foreground transition-colors">
+                  Skills
                 </a>
               </li>
               <li>
-                <a href="#contact" onClick={handleClick('#contact')} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#contact" onClick={handleClick('#contact')} className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </a>
               </li>
@@ -45,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-card-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground text-center md:text-left">
             &copy; {currentYear} Milan Timalsena. All rights reserved.
           </p>
           <div className="flex items-center gap-4">

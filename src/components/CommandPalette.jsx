@@ -4,11 +4,12 @@ import { Search, Home, User, Briefcase, Folder, Code, BookOpen, Mail, Download }
 
 const items = [
   { id: 'home', label: 'Home', icon: Home, href: '#home' },
-  { id: 'about', label: 'About', icon: User, href: '#about' },
-  { id: 'experience', label: 'Experience', icon: Briefcase, href: '#experience' },
-  { id: 'projects', label: 'Projects', icon: Folder, href: '#projects' },
-  { id: 'skills', label: 'Skills', icon: Code, href: '#skills' },
-  { id: 'blog', label: 'Blog', icon: BookOpen, href: '#blog' },
+  { id: 'projects', label: 'Featured Work & Projects', icon: Folder, href: '#projects' },
+  { id: 'services', label: 'Services & Capabilities', icon: Code, href: '#services' },
+  { id: 'creative', label: 'Design & Creative Work', icon: User, href: '#creative' },
+  { id: 'about', label: 'About Milan', icon: User, href: '#about' },
+  { id: 'experience', label: 'Experience & Journey', icon: Briefcase, href: '#experience' },
+  { id: 'skills', label: 'Skills & Technologies', icon: Code, href: '#skills' },
   { id: 'contact', label: 'Contact', icon: Mail, href: '#contact' },
   { id: 'resume', label: 'Download Resume', icon: Download, href: '/Resume/Milan-Timalsena-Resume.pdf' },
 ]

@@ -6,12 +6,12 @@ import { cn } from '../lib/utils'
 import milanLogo from '../assets/milan logo.svg'
 
 const links = [
-  { name: 'Home', href: '#home' },
+  { name: 'Work', href: '#projects' },
+  { name: 'Services', href: '#services' },
+  { name: 'Creative', href: '#creative' },
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
-  { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
 ]
 

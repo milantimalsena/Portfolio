@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from './components/ThemeProvider'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Services from './components/Services'
+import Projects from './components/Projects'
+import CreativeWork from './components/CreativeWork'
 import About from './components/About'
 import Experience from './components/Experience'
-import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Testimonials from './components/Testimonials'
-import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
@@ -33,7 +34,7 @@ function LoadingScreen() {
         <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
           <div className="w-5 h-5 rounded-lg bg-primary animate-pulse" />
         </div>
-        <p className="text-sm text-muted-foreground font-medium">Loading</p>
+        <p className="text-sm text-muted-foreground font-medium">Loading Portfolio...</p>
       </motion.div>
     </motion.div>
   )
@@ -43,7 +44,7 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800)
+    const timer = setTimeout(() => setLoading(false), 600)
     return () => clearTimeout(timer)
   }, [])
 
@@ -75,12 +76,13 @@ function App() {
               <Navbar />
               <main>
                 <Hero />
+                <Projects />
+                <Services />
+                <CreativeWork />
                 <About />
                 <Experience />
-                <Projects />
                 <Skills />
                 <Testimonials />
-                <Blog />
                 <Contact />
               </main>
               <Footer />
