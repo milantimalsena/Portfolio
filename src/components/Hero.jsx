@@ -54,17 +54,6 @@ export default function Hero() {
             animate="visible"
             className="flex flex-col items-start gap-6"
           >
-            <motion.span
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-secondary-accent bg-secondary-accent/10 rounded-full border border-secondary-accent/20"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-accent opacity-40" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-accent" />
-              </span>
-              Available for Freelance & Full-Time
-            </motion.span>
-
             <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-semibold tracking-tight text-foreground leading-[1.08]"
@@ -79,7 +68,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg text-pretty"
             >
-              Milan designs and builds modern digital products from interface design through development and deployment.
+              I designs and builds modern digital products from interface design through development and deployment.
             </motion.p>
 
             <motion.div

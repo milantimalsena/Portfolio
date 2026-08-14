@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, ArrowUpRight, X, CheckCircle2, Layers } from 'lucide-react'
-import { FaGithub } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { ExternalLink, ArrowUpRight, X } from 'lucide-react'
 import { cn } from '../lib/utils'
 
 const projects = [
@@ -16,24 +15,9 @@ const projects = [
     solution: 'Delivered an integrated enterprise portal featuring real-time status dashboards, client management modules, and automated workflow tracking.',
     contribution: 'Architected database schemas, designed high-fidelity UI components, and implemented frontend state management.',
     outcome: 'Streamlined client operations and replaced legacy offline tracking with a modern digital workspace.',
-    live: '#',
+    live: 'https://guptanexus.com',
     github: 'https://github.com/milantimalsena',
     gradient: 'from-blue-500/20 to-indigo-500/20',
-  },
-  {
-    id: 'flowvent',
-    title: 'Flowvent',
-    tagline: 'Event Planning & Workflow Application',
-    role: 'Full-Stack Developer & UI/UX Designer',
-    tech: ['React', 'JavaScript', 'Node.js', 'Express', 'Tailwind CSS'],
-    challenge: 'Event organizers needed a streamlined system to coordinate scheduling, attendee registrations, and vendor workflows without complex software overhead.',
-    approach: 'Created modular user flows and interactive visual schedules to minimize cognitive load during high-pressure event execution.',
-    solution: 'Built a responsive event workspace supporting dynamic registration forms, agenda builders, and automated notifications.',
-    contribution: 'Designed user interface flows, created component libraries, and connected backend API endpoints.',
-    outcome: 'Reduced event setup time and provided a unified management dashboard for organizers.',
-    live: '#',
-    github: 'https://github.com/milantimalsena',
-    gradient: 'from-amber-500/20 to-orange-500/20',
   },
   {
     id: 'eastern-tourism',
@@ -46,8 +30,8 @@ const projects = [
     solution: 'Deployed a production tourism portal featuring tour package listings, gallery showcases, and direct travel inquiry forms.',
     contribution: 'Developed responsive frontend interfaces, optimized image rendering performance, and integrated query API endpoints.',
     outcome: 'Promoted regional tourism destinations and enabled seamless travel package inquiries.',
-    live: 'http://Easterntravelmart2026.com',
-    github: 'https://easterntravelmart.com/',
+    live: 'https://easterntravelmart.com/',
+    github: 'https://github.com/milantimalsena',
     gradient: 'from-sky-500/20 to-blue-500/20',
   },
   {
@@ -61,7 +45,7 @@ const projects = [
     solution: 'Built a regional marketplace featuring cultural travel itineraries, vendor showcases, and event announcements.',
     contribution: 'Designed card component structures, implemented backend data fetching, and built responsive layout grids.',
     outcome: 'Elevated cultural tourism visibility and connected regional vendors with visitors.',
-    live: '#',
+    live: 'https://madheshtourismmart.com/',
     github: 'https://github.com/milantimalsena',
     gradient: 'from-violet-500/20 to-purple-500/20',
   },
@@ -106,48 +90,172 @@ const projects = [
     solution: 'Delivered a campaign web portal featuring candidate manifestos, press releases, media galleries, and constituent interaction forms.',
     contribution: 'Designed and built the full web application from initial mockup through deployment.',
     outcome: 'Strengthened digital constituent engagement and presented a clear campaign platform.',
-    live: '#',
+    live: 'https://gayatri-bhandari.vercel.app/',
     github: 'https://github.com/milantimalsena',
     gradient: 'from-blue-500/20 to-indigo-500/20',
   },
 ]
 
+const workflowStages = [
+  { id: 'design', step: '01', label: 'DESIGN' },
+  { id: 'build', step: '02', label: 'BUILD' },
+  { id: 'ship', step: '03', label: 'SHIP' },
+]
+
 export default function Projects() {
   const [selected, setSelected] = useState(null)
+  const [activeStage, setActiveStage] = useState(0)
+  const shouldReduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    if (shouldReduceMotion) return
+    const timer = setInterval(() => {
+      setActiveStage((prev) => (prev + 1) % workflowStages.length)
+    }, 3500)
+    return () => clearInterval(timer)
+  }, [shouldReduceMotion])
 
   return (
     <section id="projects" className="py-24 md:py-32 relative z-10">
       <div className="mx-auto max-w-container px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-16"
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0, 1] }}
+          className="max-w-3xl mb-16"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block"
+          >
             Featured Work
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-foreground leading-tight mb-6">
-            Digital products<br />
-            <span className="text-primary">designed & shipped</span>
+          </motion.span>
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold text-foreground leading-[1.12] mb-6 tracking-tight">
+            <motion.span
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="block text-foreground"
+            >
+              Digital products
+            </motion.span>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="relative inline-flex items-center flex-wrap gap-x-3 overflow-hidden py-1 min-h-[1.3em]"
+            >
+              {shouldReduceMotion ? (
+                <span className="text-primary font-semibold">designed & shipped</span>
+              ) : (
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={activeStage}
+                    initial={{ y: 18, opacity: 0, filter: 'blur(4px)' }}
+                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    exit={{ y: -18, opacity: 0, filter: 'blur(4px)' }}
+                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    className="inline-flex items-center gap-2"
+                  >
+                    {activeStage === 0 && (
+                      <>
+                        <span className="text-primary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary/40">
+                          designed
+                        </span>
+                        <span className="text-foreground/90 font-normal">& shipped</span>
+                      </>
+                    )}
+                    {activeStage === 1 && (
+                      <>
+                        <span className="text-foreground/90 font-normal">designed &</span>
+                        <span className="text-primary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary/40">
+                          built
+                        </span>
+                      </>
+                    )}
+                    {activeStage === 2 && (
+                      <>
+                        <span className="text-primary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary/40">
+                          built
+                        </span>
+                        <span className="text-foreground/90 font-normal">&</span>
+                        <span className="text-primary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary/40">
+                          shipped
+                        </span>
+                      </>
+                    )}
+                  </motion.span>
+                </AnimatePresence>
+              )}
+            </motion.div>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+
+          {/* Product Workflow Indicator bar */}
+          <div className="mt-6 pt-6 relative border-t border-card-border/40 max-w-md">
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.0, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-0 left-0 right-0 h-[2px] bg-primary origin-left"
+            />
+            <div className="grid grid-cols-3 gap-3">
+              {workflowStages.map((stage, idx) => (
+                <button
+                  key={stage.id}
+                  onClick={() => setActiveStage(idx)}
+                  className={cn(
+                    'flex flex-col items-start transition-all duration-300 text-left cursor-pointer group',
+                    activeStage === idx ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+                  )}
+                  aria-label={`Workflow stage ${stage.step} ${stage.label}`}
+                >
+                  <span className={cn(
+                    'text-[10px] font-mono font-semibold tracking-wider mb-1 px-1.5 py-0.5 rounded border transition-colors',
+                    activeStage === idx
+                      ? 'bg-primary/10 border-primary/30 text-primary'
+                      : 'bg-muted/40 border-card-border/60 text-muted-foreground group-hover:border-muted-foreground/30'
+                  )}>
+                    {stage.step}
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold tracking-widest font-display uppercase">
+                    {stage.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed text-pretty"
+          >
             A selection of real-world applications, platforms, and digital experiences I have designed, engineered, and deployed.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.1, 0, 1] }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0, 1] }}
               className={cn(
                 'group relative bg-card border border-card-border rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between',
-                'hover:border-muted-foreground/30 transition-all duration-500 shadow-sm hover:shadow-md'
+                'hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300'
               )}
               onClick={() => setSelected(project)}
               onKeyDown={(e) => {
@@ -160,7 +268,7 @@ export default function Projects() {
               role="button"
               aria-label={`View detailed case study for ${project.title}`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
               <div className="relative p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
@@ -171,7 +279,7 @@ export default function Projects() {
                     <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4 font-medium">{project.tagline}</p>
@@ -198,7 +306,7 @@ export default function Projects() {
 
                   <div className="pt-4 border-t border-card-border/60 flex items-center justify-between text-sm">
                     <span className="inline-flex items-center gap-1.5 font-semibold text-primary group-hover:gap-2 transition-all">
-                      Read Case Study <ArrowUpRight size={15} />
+                      Read Case Study <ArrowUpRight size={15} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </span>
                     {project.live !== '#' && (
                       <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
@@ -249,81 +357,66 @@ export default function Projects() {
                     {selected.role}
                   </span>
                 </div>
+
                 <h3 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-2">
                   {selected.title}
                 </h3>
-                <p className="text-lg text-muted-foreground mb-8 font-medium">{selected.tagline}</p>
+                <p className="text-lg font-medium text-muted-foreground mb-8">
+                  {selected.tagline}
+                </p>
 
-                <div className="space-y-8">
-                  {/* Case Study Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-muted/40 rounded-2xl border border-card-border">
-                    <div>
-                      <h4 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary" /> The Challenge
-                      </h4>
-                      <p className="text-sm text-foreground/90 leading-relaxed">{selected.challenge}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-secondary-accent" /> My Approach
-                      </h4>
-                      <p className="text-sm text-foreground/90 leading-relaxed">{selected.approach}</p>
-                    </div>
-                  </div>
-
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-muted/40 rounded-2xl border border-card-border">
                   <div>
-                    <h4 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">The Solution</h4>
-                    <p className="text-foreground leading-relaxed">{selected.solution}</p>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">The Challenge</h4>
+                    <p className="text-sm text-foreground/90 leading-relaxed">{selected.challenge}</p>
                   </div>
-
                   <div>
-                    <h4 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">My Role & Contribution</h4>
-                    <div className="flex items-start gap-3 p-4 bg-primary/5 rounded-xl border border-primary/10 text-foreground">
-                      <CheckCircle2 size={20} className="text-primary shrink-0 mt-0.5" />
-                      <p className="text-sm leading-relaxed">{selected.contribution}</p>
-                    </div>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">The Solution</h4>
+                    <p className="text-sm text-foreground/90 leading-relaxed">{selected.solution}</p>
                   </div>
+                </div>
 
+                <div className="space-y-6 mb-8">
                   <div>
-                    <h4 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Technology Stack</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selected.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1.5 text-xs font-medium bg-muted text-foreground rounded-full border border-card-border"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">My Approach</h4>
+                    <p className="text-sm text-foreground/90 leading-relaxed">{selected.approach}</p>
                   </div>
-
                   <div>
-                    <h4 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2">Outcome & Impact</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{selected.outcome}</p>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Key Outcome</h4>
+                    <p className="text-sm text-foreground/90 leading-relaxed">{selected.outcome}</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-card-border">
+                  <div className="flex flex-wrap gap-2">
+                    {selected.tech.map((t) => (
+                      <span key={t} className="px-3 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-lg border border-card-border">
+                        {t}
+                      </span>
+                    ))}
                   </div>
 
-                  <div className="flex items-center gap-4 pt-6 border-t border-card-border">
+                  <div className="flex items-center gap-3">
+                    {selected.github !== '#' && (
+                      <a
+                        href={selected.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-foreground bg-muted hover:bg-muted/80 rounded-xl transition-colors"
+                      >
+                        GitHub <ArrowUpRight size={15} />
+                      </a>
+                    )}
                     {selected.live !== '#' && (
                       <a
                         href={selected.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-semibold rounded-xl hover:brightness-110 transition-all text-sm shadow-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-xl transition-colors shadow-sm"
                       >
-                        <ExternalLink size={16} />
-                        Visit Live Project
+                        Visit Live Site <ExternalLink size={15} />
                       </a>
                     )}
-                    <a
-                      href={selected.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-card-border text-foreground font-semibold rounded-xl hover:border-muted-foreground/30 transition-all text-sm"
-                    >
-                      <FaGithub size={16} />
-                      View Source Code
-                    </a>
                   </div>
                 </div>
               </div>

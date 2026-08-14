@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Moon, Sun, FileText } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
 import { cn } from '../lib/utils'
-import milanLogo from '../assets/milan logo.svg'
+import logo from '../assets/logo.svg'
 
 const links = [
   { name: 'Work', href: '#projects' },
@@ -49,7 +49,7 @@ export default function Navbar() {
             className="relative group shrink-0"
             aria-label="Milan Timalsena - Home"
           >
-            <img src={milanLogo} alt="Milan Logo" className="h-8 w-auto rounded-[5px]" />
+            <img src={logo} alt="Milan Logo" className="h-12 md:h-16 w-auto object-contain rounded-[5px] transition-transform duration-300 hover:scale-105" />
           </a>
 
           <ul className="hidden md:flex items-center gap-1" role="list">
