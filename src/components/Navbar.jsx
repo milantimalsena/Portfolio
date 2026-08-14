@@ -4,6 +4,7 @@ import { Menu, X, Moon, Sun, FileText } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
 import { cn } from '../lib/utils'
 import logo from '../assets/logo.svg'
+import milanLogo from '../assets/milan logo.svg'
 
 const links = [
   { name: 'Work', href: '#projects' },
@@ -34,6 +35,8 @@ export default function Navbar() {
     }
   }
 
+  const currentLogo = theme === 'dark' ? milanLogo : logo
+
   return (
     <header
       className={cn(
@@ -49,7 +52,11 @@ export default function Navbar() {
             className="relative group shrink-0"
             aria-label="Milan Timalsena - Home"
           >
-            <img src={logo} alt="Milan Logo" className="h-12 md:h-16 w-auto object-contain rounded-[5px] transition-transform duration-300 hover:scale-105" />
+            <img
+              src={currentLogo}
+              alt="Milan Logo"
+              className="h-10 md:h-12 w-auto object-contain rounded-[5px] transition-all duration-300 hover:scale-105"
+            />
           </a>
 
           <ul className="hidden md:flex items-center gap-1" role="list">

@@ -1,8 +1,11 @@
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
-import logo from '../assets/milan logo.svg'
+import { useTheme } from './ThemeProvider'
+import logo from '../assets/logo.svg'
+import milanLogo from '../assets/milan logo.svg'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { theme } = useTheme()
 
   const handleClick = (href) => (e) => {
     e.preventDefault()
@@ -10,13 +13,15 @@ export default function Footer() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const currentLogo = theme === 'dark' ? milanLogo : logo
+
   return (
     <footer className="relative z-10 border-t border-card-border bg-background" role="contentinfo">
       <div className="mx-auto max-w-container px-6 py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col items-center md:items-start gap-3">
             <a href="#home" onClick={handleClick('#home')} aria-label="Milan Timalsena - Back to top">
-              <img src={logo} alt="Milan Timalsena" className="h-10 md:h-12 w-auto object-contain rounded-[5px]" />
+              <img src={currentLogo} alt="Milan Timalsena" className="h-8 md:h-10 w-auto object-contain rounded-[5px]" />
             </a>
             <p className="text-xs sm:text-sm text-muted-foreground max-w-xs text-center md:text-left">
               Milan Timalsena — Full-Stack Developer & UI/UX Designer crafting real digital products.
