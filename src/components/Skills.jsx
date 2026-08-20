@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import {
-  SiReact, SiVite, SiTailwindcss, SiFramer,
+  SiReact, SiVite, SiTailwindcss, SiFramer, SiNextdotjs,
   SiNodedotjs, SiPython, SiDjango, SiExpress,
   SiMongodb, SiPostgresql, SiMysql, SiSqlite,
-  SiVercel, SiNetlify, SiDocker,
+  SiVercel, SiNetlify, SiDocker, SiCpanel,
   SiFigma, SiAdobe, SiCanva,
   SiGit, SiGithub, SiPostman,
 } from 'react-icons/si'
@@ -15,6 +15,7 @@ const skillCategories = [
     description: 'Building responsive, interactive user interfaces',
     skills: [
       { name: 'React', icon: SiReact, primary: true },
+      { name: 'Next.js', icon: SiNextdotjs, primary: true },
       { name: 'JavaScript', icon: FaJs, primary: true },
       { name: 'Tailwind CSS', icon: SiTailwindcss, primary: true },
       { name: 'HTML5', icon: FaHtml5, primary: true },
@@ -59,6 +60,7 @@ const skillCategories = [
     skills: [
       { name: 'Git', icon: SiGit, primary: true },
       { name: 'GitHub', icon: SiGithub, primary: true },
+      { name: 'cPanel', icon: SiCpanel, primary: true },
       { name: 'Vercel', icon: SiVercel, primary: true },
       { name: 'Netlify', icon: SiNetlify, primary: false },
       { name: 'Docker', icon: SiDocker, primary: false },
