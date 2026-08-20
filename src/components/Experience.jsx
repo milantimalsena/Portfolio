@@ -27,7 +27,7 @@ const experienceTimeline = [
     highlights: [
       'Designed & developed 20+ web applications, dashboards, and marketing portals',
       'Built custom responsive interfaces in React, Tailwind CSS, and Figma',
-      'Managed full client lifecycle from wireframing to production cloud deployment',
+      'Managed full client lifecycle from wireframing to cPanel & cloud production deployment',
     ],
   },
   {
