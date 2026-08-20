@@ -10,10 +10,11 @@ const experienceTimeline = [
     icon: Briefcase,
     description: 'Leading full-stack design & development for client production platforms.',
     highlights: [
-      'Eastern Tourism Mart — Regional tourism discovery & booking portal',
-      'Madhesh Tourism Mart — Cultural tourism marketplace',
+      'Bholi Ko Itahari — Vision 2050 civic urban development platform',
       'Birat TV — News broadcasting portal with live video streaming player',
       'Gayatri Katwal Bhandari Campaign — Political campaign web presence',
+      'Madhesh Tourism Mart — Cultural tourism marketplace',
+      'Eastern Tourism Mart — Regional tourism discovery & booking portal',
     ],
   },
   {

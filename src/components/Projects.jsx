@@ -1,44 +1,85 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { ExternalLink, ArrowUpRight, X } from 'lucide-react'
+import { ExternalLink, ArrowUpRight, X, Globe } from 'lucide-react'
 import { cn } from '../lib/utils'
+
+import bholiLogo from '../assets/work/Bholi ko itahari.png'
+import biratTvLogo from '../assets/work/Birat Tv.svg'
+import easternMartLogo from '../assets/work/Eaastern travel mart.png'
+import gayatriLogo from '../assets/work/gayatri katuwal bhandari.jpeg'
+import madheshMartLogo from '../assets/work/madhesh Torish mart.png'
+import guptaNexusLogo from '../assets/work/Gupta nexus.png'
 
 const projects = [
   {
     id: 'gupta-nexus',
     title: 'Gupta Nexus',
     tagline: 'Enterprise Digital Management Platform',
-    role: 'Lead Full-Stack Developer & UI Designer',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    category: 'Enterprise Suite',
+    tech: ['Next.js', 'React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
     challenge: 'Managing operational workflows, client communication, and project reporting across fragmented communication tools resulted in lost context and inefficiency.',
-    approach: 'Designed an intuitive dashboard interface in Figma focusing on clean hierarchy and single-click access to active workflows. Built a decoupled React frontend backed by a Node.js REST API.',
+    approach: 'Collaborated to design an intuitive dashboard in Figma and build a scalable Next.js and React frontend backed by a Node.js & Express REST API architecture.',
     solution: 'Delivered an integrated enterprise portal featuring real-time status dashboards, client management modules, and automated workflow tracking.',
-    contribution: 'Architected database schemas, designed high-fidelity UI components, and implemented frontend state management.',
+    contribution: 'Collaborated across the full stack: architected database schemas, designed high-fidelity UI components, and implemented frontend state management and API routes.',
     outcome: 'Streamlined client operations and replaced legacy offline tracking with a modern digital workspace.',
     live: 'https://guptanexus.com',
     github: 'https://github.com/milantimalsena',
+    logo: guptaNexusLogo,
     gradient: 'from-blue-500/20 to-indigo-500/20',
   },
   {
-    id: 'eastern-tourism',
-    title: 'Eastern Tourism Mart',
-    tagline: 'Regional Tourism Discovery & Booking Portal',
-    role: 'Software Developer (Kafals)',
-    tech: ['React', 'JavaScript', 'Tailwind CSS', 'REST API'],
-    challenge: 'Eastern Nepal’s rich cultural destinations lacked a centralized, high-performance digital portal for international visitors and booking agencies.',
-    approach: 'Emphasized rich visual storytelling, fast page load speeds, and intuitive destination discovery filtered by tour categories.',
-    solution: 'Deployed a production tourism portal featuring tour package listings, gallery showcases, and direct travel inquiry forms.',
-    contribution: 'Developed responsive frontend interfaces, optimized image rendering performance, and integrated query API endpoints.',
-    outcome: 'Promoted regional tourism destinations and enabled seamless travel package inquiries.',
-    live: 'https://easterntravelmart.com/',
+    id: 'bholikoitahari',
+    title: 'Bholi Ko Itahari',
+    tagline: 'Vision 2050 Civic Urban Development Platform',
+    category: 'Civic Platform',
+    tech: ['React', 'Node.js', 'Express', 'JavaScript', 'Tailwind CSS', 'Vite'],
+    challenge: 'Communicating the ambitious "Vision 2050" master plan for Itahari city to citizens, youth, and civic leaders required an engaging, accessible, and fast digital hub.',
+    approach: 'Collaborated to design and engineer a full-stack civic portal highlighting key development pillars, community participation mechanisms, and vision milestones with high mobile responsiveness.',
+    solution: 'Deployed a dedicated civic web platform providing interactive vision roadmaps, localized typography, community engagement channels, and milestone tracking.',
+    contribution: 'Contributed across the full stack: co-designed UI wireframes, developed responsive React views, and integrated backend API endpoints for civic feeds and constituent feedback.',
+    outcome: 'Empowered citizens and civic stakeholders to explore, engage with, and contribute to the collective urban future of Itahari.',
+    live: 'https://bholikoitahari.com',
     github: 'https://github.com/milantimalsena',
-    gradient: 'from-sky-500/20 to-blue-500/20',
+    logo: bholiLogo,
+    gradient: 'from-emerald-500/20 to-teal-500/20',
+  },
+  {
+    id: 'birat-tv',
+    title: 'Birat TV',
+    tagline: 'Modern News Broadcasting & Live Streaming Portal',
+    category: 'News & Media',
+    tech: ['React', 'Node.js', 'Express', 'JavaScript', 'Tailwind CSS', 'Vite'],
+    challenge: 'Delivering breaking news updates and high-traffic live video streams seamlessly across mobile devices.',
+    approach: 'Collaboratively engineered a full-stack media platform using React and Node.js with embedded streaming players optimized for low latency and high concurrency.',
+    solution: 'Launched a news broadcasting web portal with live TV streaming, article categorization, and breaking news alerts.',
+    contribution: 'Delivered full-stack components: implemented live video player integrations, responsive typography, and backend API endpoints for news feeds and live broadcasting data.',
+    outcome: 'Delivered smooth live stream delivery and quick article reading experience during peak news cycles.',
+    live: 'http://www.BiratTv.com.np',
+    github: 'https://github.com/milantimalsena',
+    logo: biratTvLogo,
+    gradient: 'from-red-500/20 to-rose-500/20',
+  },
+  {
+    id: 'gayatri-campaign',
+    title: 'Gayatri Katwal Bhandari Campaign',
+    tagline: 'Political Campaign Digital Presence',
+    category: 'Campaign Portal',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    challenge: 'Communicating the candidate’s vision, policy goals, and event calendar clearly to constituents during an active campaign season.',
+    approach: 'Collaborated to build a high-trust, authoritative full-stack campaign presence paired with fast news feed updates and interactive event calendars.',
+    solution: 'Delivered a campaign web portal featuring candidate manifestos, press releases, media galleries, and constituent interaction forms.',
+    contribution: 'Developed full-stack modules including dynamic manifestos, media galleries, contact submission APIs, and database persistence.',
+    outcome: 'Strengthened digital constituent engagement and presented a clear campaign platform.',
+    live: 'https://gayatri-bhandari.vercel.app/',
+    github: 'https://github.com/milantimalsena',
+    logo: gayatriLogo,
+    gradient: 'from-blue-500/20 to-indigo-500/20',
   },
   {
     id: 'madhesh-tourism',
     title: 'Madhesh Tourism Mart',
     tagline: 'Cultural Heritage & Tourism Marketplace',
-    role: 'Software Developer (Kafals)',
+    category: 'Cultural Marketplace',
     tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     challenge: 'Connecting local cultural heritage sites, regional events, and hospitality businesses with travelers across Nepal.',
     approach: 'Created accessible directory layouts with multilingual design considerations and interactive event schedules.',
@@ -47,28 +88,30 @@ const projects = [
     outcome: 'Elevated cultural tourism visibility and connected regional vendors with visitors.',
     live: 'https://madheshtourismmart.com/',
     github: 'https://github.com/milantimalsena',
-    gradient: 'from-violet-500/20 to-purple-500/20',
+    logo: madheshMartLogo,
+    gradient: 'from-amber-500/20 to-orange-500/20',
   },
   {
-    id: 'birat-tv',
-    title: 'Birat TV',
-    tagline: 'Modern News Broadcasting & Live Streaming Portal',
-    role: 'Software Developer (Kafals)',
-    tech: ['React', 'Vite', 'JavaScript', 'Tailwind CSS'],
-    challenge: 'Delivering breaking news updates and high-traffic live video streams seamlessly across mobile devices.',
-    approach: 'Architected a lightweight client bundle using Vite and React with embedded streaming players optimized for low latency.',
-    solution: 'Launched a news broadcasting web portal with live TV streaming, article categorization, and breaking news alerts.',
-    contribution: 'Implemented live video player integrations, responsive article typography, and high-performance layout rendering.',
-    outcome: 'Delivered smooth live stream delivery and quick article reading experience during peak news cycles.',
-    live: 'http://www.BiratTv.com.np',
+    id: 'eastern-tourism',
+    title: 'Eastern Tourism Mart',
+    tagline: 'Regional Tourism Discovery & Booking Portal',
+    category: 'Tourism & Travel',
+    tech: ['React', 'JavaScript', 'Tailwind CSS', 'REST API'],
+    challenge: 'Eastern Nepal’s rich cultural destinations lacked a centralized, high-performance digital portal for international visitors and booking agencies.',
+    approach: 'Emphasized rich visual storytelling, fast page load speeds, and intuitive destination discovery filtered by tour categories.',
+    solution: 'Deployed a production tourism portal featuring tour package listings, gallery showcases, and direct travel inquiry forms.',
+    contribution: 'Developed responsive frontend interfaces, optimized image rendering performance, and integrated query API endpoints.',
+    outcome: 'Promoted regional tourism destinations and enabled seamless travel package inquiries.',
+    live: 'https://easterntravelmart.com/',
     github: 'https://github.com/milantimalsena',
-    gradient: 'from-red-500/20 to-rose-500/20',
+    logo: easternMartLogo,
+    gradient: 'from-sky-500/20 to-blue-500/20',
   },
   {
     id: 'saral-sewa',
     title: 'Saral Sewa',
     tagline: 'Public Services Aggregator Platform',
-    role: 'Full Stack Mobile & Web Developer',
+    category: 'Civic App',
     tech: ['Flutter', 'Dart', 'Django', 'SQLite', 'REST API'],
     challenge: 'Complex civic guidelines and public service procedures created barrier for citizens seeking clear government information.',
     approach: 'Designed a single-window mobile interface prioritizing accessibility, clean typography, and quick search indexing.',
@@ -77,22 +120,8 @@ const projects = [
     outcome: 'Streamlined civic access and empowered users with simplified public service information.',
     live: '#',
     github: 'https://github.com/milantimalsena',
+    logo: null,
     gradient: 'from-emerald-500/20 to-teal-500/20',
-  },
-  {
-    id: 'gayatri-campaign',
-    title: 'Gayatri Katwal Bhandari Campaign',
-    tagline: 'Political Campaign Digital Presence',
-    role: 'Full-Stack Developer',
-    tech: ['React', 'Tailwind CSS', 'Node.js'],
-    challenge: 'Communicating the candidate’s vision, policy goals, and event calendar clearly to constituents during an active campaign season.',
-    approach: 'Designed a high-trust, authoritative visual identity paired with fast news feed updates and interactive event calendars.',
-    solution: 'Delivered a campaign web portal featuring candidate manifestos, press releases, media galleries, and constituent interaction forms.',
-    contribution: 'Designed and built the full web application from initial mockup through deployment.',
-    outcome: 'Strengthened digital constituent engagement and presented a clear campaign platform.',
-    live: 'https://gayatri-bhandari.vercel.app/',
-    github: 'https://github.com/milantimalsena',
-    gradient: 'from-blue-500/20 to-indigo-500/20',
   },
 ]
 
@@ -272,10 +301,22 @@ export default function Projects() {
 
               <div className="relative p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full border border-primary/20">
-                      {project.role}
-                    </span>
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <div className="flex items-center gap-3 min-w-0">
+                      {project.logo && (
+                        <div className="w-10 h-10 rounded-xl bg-muted/80 p-1.5 border border-card-border flex items-center justify-center overflow-hidden shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                          <img
+                            src={project.logo}
+                            alt={`${project.title} logo`}
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full border border-primary/20 truncate">
+                        {project.category}
+                      </span>
+                    </div>
                     <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                   </div>
 
@@ -352,9 +393,18 @@ export default function Projects() {
               </button>
 
               <div className="relative pt-16 px-6 md:px-10 pb-10">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-3 mb-3 flex-wrap">
+                  {selected.logo && (
+                    <div className="w-12 h-12 rounded-2xl bg-card/90 p-2 border border-card-border flex items-center justify-center overflow-hidden shadow-md">
+                      <img
+                        src={selected.logo}
+                        alt={`${selected.title} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  )}
                   <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full border border-primary/20">
-                    {selected.role}
+                    {selected.category}
                   </span>
                 </div>
 
@@ -427,3 +477,4 @@ export default function Projects() {
     </section>
   )
 }
+
