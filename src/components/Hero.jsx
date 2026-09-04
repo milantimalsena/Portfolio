@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, FileText } from 'lucide-react'
-import milanPhoto from '../assets/milanphoto.JPG'
+import milanPhotoSmall from '../assets/milanphoto-480.jpg'
+import milanPhotoLarge from '../assets/milanphoto-900.jpg'
 import {
   SiReact,
   SiNodedotjs,
@@ -71,14 +72,6 @@ export default function Hero() {
               I designs and builds modern digital products from interface design through development and deployment.
             </motion.p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-2 text-xs font-medium text-muted-foreground bg-card/60 backdrop-blur-sm border border-card-border px-3.5 py-2 rounded-xl"
-            >
-              <span className="text-primary font-semibold">Focus:</span>
-              <span>React · Node.js · JavaScript · UI/UX · MongoDB</span>
-            </motion.div>
-
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-2">
               <a
                 href="#projects"
@@ -115,10 +108,16 @@ export default function Hero() {
               <div className="absolute inset-4 rounded-full bg-card/50 backdrop-blur-3xl border border-card-border overflow-hidden shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent z-10" />
                 <img
-                  src={milanPhoto}
+                  src={milanPhotoLarge}
+                  srcSet={`${milanPhotoSmall} 480w, ${milanPhotoLarge} 900w`}
+                  sizes="(min-width: 1024px) 450px, (min-width: 768px) 384px, 288px"
                   alt="Milan Timalsena — Software Engineer & UI/UX Designer"
                   className="w-full h-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="900"
+                  height="1350"
                 />
               </div>
             </div>

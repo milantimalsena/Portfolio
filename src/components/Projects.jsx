@@ -5,12 +5,29 @@ import { cn } from '../lib/utils'
 
 import bholiLogo from '../assets/work/Bholi ko itahari.png'
 import biratTvLogo from '../assets/work/Birat Tv.svg'
-import easternMartLogo from '../assets/work/Eaastern travel mart.png'
-import gayatriLogo from '../assets/work/gayatri katuwal bhandari.jpeg'
-import madheshMartLogo from '../assets/work/madhesh Torish mart.png'
-import guptaNexusLogo from '../assets/work/Gupta nexus.png'
+import easternMartLogo from '../assets/work/eastern-travel-mart-320.png'
+import gayatriLogo from '../assets/work/gayatri-bhandari-320.jpg'
+import madheshMartLogo from '../assets/work/madhesh-tourism-mart-320.png'
+import guptaNexusLogo from '../assets/work/gupta-nexus-320.png'
+import faaidooLogo from '../../assets/Work/faido_fav_icon.svg'
 
 const projects = [
+  {
+    id: 'faaidoo',
+    title: 'Faaidoo',
+    tagline: 'Multi-Store Loyalty & Rewards Management Platform',
+    category: 'Loyalty Platform',
+    tech: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'PWA'],
+    challenge: 'Businesses needed a simple way to turn occasional shoppers into loyal customers while managing rewards consistently across multiple stores.',
+    approach: 'Designed a clear, mobile-first experience around automated points, tiered membership ranks, and effortless reward redemption for customers and merchants.',
+    solution: 'Built a multi-store loyalty management platform that centralizes customer rewards, points tracking, tier progression, and redemption in one seamless experience.',
+    contribution: 'Designed and developed the responsive product experience, loyalty workflows, reusable interface components, and production-ready progressive web app.',
+    outcome: 'Gave merchants a streamlined way to strengthen repeat engagement and reward their most loyal customers.',
+    live: 'https://faaidoo.com',
+    github: 'https://github.com/milantimalsena',
+    logo: faaidooLogo,
+    gradient: 'from-cyan-500/20 to-blue-600/20',
+  },
   {
     id: 'gupta-nexus',
     title: 'Gupta Nexus',
@@ -477,4 +494,3 @@ export default function Projects() {
     </section>
   )
 }
-
