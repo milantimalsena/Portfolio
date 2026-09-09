@@ -9,6 +9,7 @@ import easternMartLogo from '../assets/work/eastern-travel-mart-320.png'
 import gayatriLogo from '../assets/work/gayatri-bhandari-320.jpg'
 import madheshMartLogo from '../assets/work/madhesh-tourism-mart-320.png'
 import guptaNexusLogo from '../assets/work/gupta-nexus-320.png'
+import gamingPosLogo from '../assets/work/GamingPos-transparent.png'
 import faaidooLogo from '../../assets/Work/faido_fav_icon.svg'
 
 const projects = [
@@ -43,6 +44,22 @@ const projects = [
     github: 'https://github.com/milantimalsena',
     logo: guptaNexusLogo,
     gradient: 'from-blue-500/20 to-indigo-500/20',
+  },
+  {
+    id: 'gaming-pos',
+    title: 'Gaming POS',
+    tagline: 'Multi-Tenant Gaming Venue Management SaaS',
+    category: 'SaaS Platform',
+    tech: ['React 19', 'Node.js', 'Express', 'MySQL', 'Drizzle ORM', 'Tailwind CSS'],
+    challenge: 'Gaming lounges were juggling session timers, station changes, food orders, inventory, and group payments across disconnected tools—creating operational friction and revenue leakage.',
+    approach: 'Designed the platform around immutable session segments, real-time station states, unified visit groups, and strict tenant boundaries so complex venue activity stays accurate and easy for staff to manage.',
+    solution: 'Built a multi-tenant SaaS platform that combines live PC and console session control, café POS, group billing, stock-aware ordering, clash-free reservations, subscriptions, and role-based operations.',
+    contribution: 'Architected and developed the full-stack SaaS experience, including snapshot-based pricing, tenant-isolated MySQL relationships, permission-gated workflows, automated inventory rules, and operational dashboards.',
+    outcome: 'Created one synchronized workflow for venue owners and floor staff, reducing billing gaps while making station utilization, sales, inventory, and profitability visible in real time.',
+    live: '#',
+    github: '#',
+    logo: gamingPosLogo,
+    gradient: 'from-cyan-500/20 via-blue-600/15 to-fuchsia-500/20',
   },
   {
     id: 'bholikoitahari',
