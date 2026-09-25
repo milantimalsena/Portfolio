@@ -159,8 +159,10 @@ const outerOrbitTechs = [
   },
 ]
 
-function TechBadge({ tech, counterClass, radiusVar, isHovered, onHover, onLeave }) {
+function TechBadge({ tech, counterClass, radiusVar, isSelected, isHovered, onToggleSelect, onHover, onLeave }) {
   const Logo = tech.logo
+  const isDisplaying = isSelected || isHovered
+
   return (
     <div
       className="orbit-slot"
@@ -170,37 +172,43 @@ function TechBadge({ tech, counterClass, radiusVar, isHovered, onHover, onLeave 
       }}
       onMouseEnter={() => onHover(tech)}
       onMouseLeave={onLeave}
+      onClick={(e) => {
+        e.stopPropagation()
+        onToggleSelect(tech)
+      }}
     >
       <div className={counterClass}>
         <div
           className={`relative group flex items-center justify-center w-full h-full rounded-full transition-all duration-300 cursor-pointer select-none ${
-            isHovered ? 'scale-125 z-40' : 'hover:scale-115'
+            isDisplaying ? 'scale-120 z-40' : 'hover:scale-115'
           }`}
           style={{
-            boxShadow: isHovered
-              ? `0 0 24px ${tech.glowColor}, 0 6px 16px rgba(0, 0, 0, 0.12)`
+            boxShadow: isDisplaying
+              ? `0 0 24px ${tech.glowColor}, 0 4px 14px rgba(0, 0, 0, 0.12)`
               : undefined,
           }}
           aria-label={tech.name}
+          role="button"
+          tabIndex={0}
         >
           {/* Badge Background Circle */}
           <div
             className={`w-full h-full rounded-full flex items-center justify-center transition-all duration-300 p-2 sm:p-2.5 ${
-              isHovered
+              isDisplaying
                 ? 'bg-white dark:bg-[#1E1E1E] ring-2'
                 : 'bg-white/95 dark:bg-[#1C1C1E]/95 shadow-[0_2px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.35)] border border-slate-200/70 dark:border-white/10'
             }`}
             style={{
-              borderColor: isHovered ? tech.brandColor : undefined,
+              borderColor: isDisplaying ? tech.brandColor : undefined,
             }}
           >
             <Logo className="w-full h-full object-contain" />
           </div>
 
-          {/* Floating Tooltip Pill */}
+          {/* Floating Tooltip Pill - Stays upright and orbits along with badge */}
           <div
-            className={`absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-900/90 dark:bg-white/95 text-white dark:text-gray-900 text-[11px] font-medium tracking-tight rounded-md whitespace-nowrap shadow-lg backdrop-blur-sm pointer-events-none transition-all duration-200 flex items-center gap-1.5 ${
-              isHovered
+            className={`absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-900/90 dark:bg-white/95 text-white dark:text-gray-900 text-[11px] font-medium tracking-tight rounded-md whitespace-nowrap shadow-lg backdrop-blur-sm pointer-events-none transition-all duration-200 flex items-center gap-1.5 z-50 ${
+              isDisplaying
                 ? 'opacity-100 -translate-y-1 scale-100'
                 : 'opacity-0 translate-y-0 scale-95 pointer-events-none'
             }`}
@@ -219,10 +227,15 @@ function TechBadge({ tech, counterClass, radiusVar, isHovered, onHover, onLeave 
 }
 
 export default function TechStack() {
-  const [activeTech, setActiveTech] = useState(null)
+  const [selectedTech, setSelectedTech] = useState(null)
+  const [hoveredTech, setHoveredTech] = useState(null)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const stageRef = useRef(null)
   const prefersReducedMotion = useReducedMotion()
+
+  const handleToggleSelect = useCallback((tech) => {
+    setSelectedTech((prev) => (prev?.name === tech.name ? null : tech))
+  }, [])
 
   const handleMouseMove = useCallback(
     (e) => {
@@ -240,7 +253,7 @@ export default function TechStack() {
 
   const handleMouseLeaveSection = useCallback(() => {
     setTilt({ x: 0, y: 0 })
-    setActiveTech(null)
+    setHoveredTech(null)
   }, [])
 
   return (
@@ -249,6 +262,7 @@ export default function TechStack() {
       className="relative py-14 sm:py-18 md:py-22 lg:py-24 overflow-hidden bg-background select-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeaveSection}
+      onClick={() => setSelectedTech(null)}
     >
       {/* Subtle Background Glows matching portfolio aesthetics */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -290,10 +304,9 @@ export default function TechStack() {
           </motion.p>
         </div>
 
-        {/* Orbit Visualization Stage */}
+        {/* Orbit Visualization Stage - Continuous rotation, never pauses */}
         <div
           ref={stageRef}
-          data-paused={activeTech !== null}
           className="orbit-stage relative w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[490px] lg:h-[490px] mx-auto flex items-center justify-center transition-transform duration-200 ease-out"
           style={{
             transform: prefersReducedMotion
@@ -318,14 +331,16 @@ export default function TechStack() {
                 tech={tech}
                 counterClass="orbit-counter-outer-cw"
                 radiusVar="--radius-outer"
-                isHovered={activeTech?.name === tech.name}
-                onHover={setActiveTech}
-                onLeave={() => setActiveTech(null)}
+                isSelected={selectedTech?.name === tech.name}
+                isHovered={hoveredTech?.name === tech.name}
+                onToggleSelect={handleToggleSelect}
+                onHover={setHoveredTech}
+                onLeave={() => setHoveredTech(null)}
               />
             ))}
           </div>
 
-          {/* 2. MIDDLE ORBIT (Counter-Clockwise, 6 items) */}
+          {/* 2. MIDDLE ORBIT (Counter-Clockwise, 7 items) */}
           <div className="orbit-ring orbit-ring-middle">
             {middleOrbitTechs.map((tech) => (
               <TechBadge
@@ -333,14 +348,16 @@ export default function TechStack() {
                 tech={tech}
                 counterClass="orbit-counter-ccw"
                 radiusVar="--radius-middle"
-                isHovered={activeTech?.name === tech.name}
-                onHover={setActiveTech}
-                onLeave={() => setActiveTech(null)}
+                isSelected={selectedTech?.name === tech.name}
+                isHovered={hoveredTech?.name === tech.name}
+                onToggleSelect={handleToggleSelect}
+                onHover={setHoveredTech}
+                onLeave={() => setHoveredTech(null)}
               />
             ))}
           </div>
 
-          {/* 3. INNER ORBIT (Clockwise, 4 items) */}
+          {/* 3. INNER ORBIT (Clockwise, 5 items) */}
           <div className="orbit-ring orbit-ring-inner">
             {innerOrbitTechs.map((tech) => (
               <TechBadge
@@ -348,9 +365,11 @@ export default function TechStack() {
                 tech={tech}
                 counterClass="orbit-counter-cw"
                 radiusVar="--radius-inner"
-                isHovered={activeTech?.name === tech.name}
-                onHover={setActiveTech}
-                onLeave={() => setActiveTech(null)}
+                isSelected={selectedTech?.name === tech.name}
+                isHovered={hoveredTech?.name === tech.name}
+                onToggleSelect={handleToggleSelect}
+                onHover={setHoveredTech}
+                onLeave={() => setHoveredTech(null)}
               />
             ))}
           </div>

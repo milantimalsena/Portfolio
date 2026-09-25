@@ -110,14 +110,6 @@
   border-color: rgba(251, 191, 36, 0.26);
 }
 
-/* Pause animation on hover */
-.orbit-stage:hover .orbit-ring,
-.orbit-stage:hover .orbit-counter-spin,
-.orbit-stage[data-paused="true"] .orbit-ring,
-.orbit-stage[data-paused="true"] .orbit-counter-spin {
-  animation-play-state: paused;
-}
-
 /* Orbit Slot: Positioned along the ring */
 .orbit-slot {
   position: absolute;
