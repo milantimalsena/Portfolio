@@ -54,7 +54,7 @@ const middleOrbitTechs = [
     category: 'Backend Runtime',
     brandColor: '#5FA04E',
     glowColor: 'rgba(95, 160, 78, 0.45)',
-    angle: 30,
+    angle: 0,
     logo: TechLogos.NodeJS,
   },
   {
@@ -62,15 +62,23 @@ const middleOrbitTechs = [
     category: 'NoSQL Database',
     brandColor: '#47A248',
     glowColor: 'rgba(71, 162, 72, 0.45)',
-    angle: 90,
+    angle: 51,
     logo: TechLogos.MongoDB,
+  },
+  {
+    name: 'PostgreSQL',
+    category: 'SQL Database',
+    brandColor: '#4169E1',
+    glowColor: 'rgba(65, 105, 225, 0.45)',
+    angle: 103,
+    logo: TechLogos.PostgreSQL,
   },
   {
     name: 'Python',
     category: 'Backend & Scripting',
     brandColor: '#3776AB',
     glowColor: 'rgba(55, 118, 171, 0.45)',
-    angle: 150,
+    angle: 154,
     logo: TechLogos.Python,
   },
   {
@@ -78,7 +86,7 @@ const middleOrbitTechs = [
     category: 'Enterprise Backend',
     brandColor: '#EA2D2E',
     glowColor: 'rgba(234, 45, 46, 0.45)',
-    angle: 210,
+    angle: 206,
     logo: TechLogos.Java,
   },
   {
@@ -86,7 +94,7 @@ const middleOrbitTechs = [
     category: 'Modern Styling',
     brandColor: '#06B6D4',
     glowColor: 'rgba(6, 182, 212, 0.45)',
-    angle: 270,
+    angle: 257,
     logo: TechLogos.Tailwind,
   },
   {
@@ -94,7 +102,7 @@ const middleOrbitTechs = [
     category: 'UI/UX Design',
     brandColor: '#F24E1E',
     glowColor: 'rgba(242, 78, 30, 0.45)',
-    angle: 330,
+    angle: 309,
     logo: TechLogos.Figma,
   },
 ]
