@@ -246,25 +246,25 @@ export default function TechStack() {
   return (
     <section
       id="tech-stack"
-      className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-background select-none"
+      className="relative py-14 sm:py-18 md:py-22 lg:py-24 overflow-hidden bg-background select-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeaveSection}
     >
       {/* Subtle Background Glows matching portfolio aesthetics */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] md:w-[650px] h-[350px] sm:h-[500px] md:h-[650px] rounded-full bg-gradient-to-tr from-purple-500/10 via-indigo-500/8 to-blue-400/5 blur-[90px] dark:blur-[120px] dark:opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[320px] h-[220px] sm:h-[320px] rounded-full bg-violet-500/10 blur-[60px] dark:opacity-30" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-gradient-to-tr from-purple-500/10 via-indigo-500/8 to-blue-400/5 blur-[80px] dark:blur-[100px] dark:opacity-40" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] sm:w-[240px] h-[180px] sm:h-[240px] rounded-full bg-violet-500/10 blur-[50px] dark:opacity-30" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-container px-4 sm:px-6">
         {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 md:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-muted-foreground mb-3 inline-block"
+            className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-muted-foreground mb-2.5 inline-block"
           >
             SKILLS
           </motion.span>
@@ -274,7 +274,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-foreground mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-foreground mb-3"
           >
             Tech Stack
           </motion.h2>
@@ -284,7 +284,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-pretty max-w-lg mx-auto"
+            className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed text-pretty max-w-md mx-auto"
           >
             Technologies I use to design, build and ship digital products.
           </motion.p>
@@ -294,7 +294,7 @@ export default function TechStack() {
         <div
           ref={stageRef}
           data-paused={activeTech !== null}
-          className="orbit-stage relative w-[310px] h-[310px] sm:w-[480px] sm:h-[480px] md:w-[560px] md:h-[560px] lg:w-[650px] lg:h-[650px] mx-auto flex items-center justify-center transition-transform duration-200 ease-out"
+          className="orbit-stage relative w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[490px] lg:h-[490px] mx-auto flex items-center justify-center transition-transform duration-200 ease-out"
           style={{
             transform: prefersReducedMotion
               ? 'none'
@@ -367,7 +367,7 @@ export default function TechStack() {
             <div className="absolute inset-0 rounded-full bg-purple-500/30 blur-md group-hover:blur-lg transition-all duration-300 pointer-events-none" />
 
             {/* Glowing Code Symbol */}
-            <span className="font-mono font-bold text-white text-base sm:text-xl md:text-2xl tracking-tighter select-none drop-shadow-md">
+            <span className="font-mono font-bold text-white text-xs sm:text-base md:text-lg tracking-tighter select-none drop-shadow-md">
               &lt;/&gt;
             </span>
           </motion.div>

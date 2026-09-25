@@ -1,44 +1,44 @@
 /* TechStack.css - Concentric Circular Orbit System */
 
 .orbit-stage {
-  --radius-outer: 290px;
-  --radius-middle: 205px;
-  --radius-inner: 120px;
-  --badge-size: 46px;
-  --badge-icon-size: 26px;
-  --center-size: 74px;
+  --radius-outer: 220px;
+  --radius-middle: 155px;
+  --radius-inner: 90px;
+  --badge-size: 38px;
+  --badge-icon-size: 20px;
+  --center-size: 58px;
 }
 
 @media (max-width: 1024px) {
   .orbit-stage {
-    --radius-outer: 230px;
-    --radius-middle: 162px;
-    --radius-inner: 95px;
-    --badge-size: 40px;
-    --badge-icon-size: 22px;
-    --center-size: 62px;
+    --radius-outer: 185px;
+    --radius-middle: 130px;
+    --radius-inner: 75px;
+    --badge-size: 34px;
+    --badge-icon-size: 18px;
+    --center-size: 50px;
   }
 }
 
 @media (max-width: 768px) {
   .orbit-stage {
-    --radius-outer: 180px;
-    --radius-middle: 128px;
-    --radius-inner: 76px;
-    --badge-size: 35px;
-    --badge-icon-size: 19px;
-    --center-size: 52px;
+    --radius-outer: 150px;
+    --radius-middle: 105px;
+    --radius-inner: 62px;
+    --badge-size: 30px;
+    --badge-icon-size: 16px;
+    --center-size: 44px;
   }
 }
 
 @media (max-width: 480px) {
   .orbit-stage {
-    --radius-outer: 140px;
-    --radius-middle: 100px;
-    --radius-inner: 60px;
-    --badge-size: 30px;
-    --badge-icon-size: 16px;
-    --center-size: 44px;
+    --radius-outer: 120px;
+    --radius-middle: 85px;
+    --radius-inner: 50px;
+    --badge-size: 26px;
+    --badge-icon-size: 14px;
+    --center-size: 38px;
   }
 }
 
