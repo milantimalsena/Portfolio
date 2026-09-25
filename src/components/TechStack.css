@@ -1,0 +1,176 @@
+/* TechStack.css - Concentric Circular Orbit System */
+
+.orbit-stage {
+  --radius-outer: 290px;
+  --radius-middle: 205px;
+  --radius-inner: 120px;
+  --badge-size: 46px;
+  --badge-icon-size: 26px;
+  --center-size: 74px;
+}
+
+@media (max-width: 1024px) {
+  .orbit-stage {
+    --radius-outer: 230px;
+    --radius-middle: 162px;
+    --radius-inner: 95px;
+    --badge-size: 40px;
+    --badge-icon-size: 22px;
+    --center-size: 62px;
+  }
+}
+
+@media (max-width: 768px) {
+  .orbit-stage {
+    --radius-outer: 180px;
+    --radius-middle: 128px;
+    --radius-inner: 76px;
+    --badge-size: 35px;
+    --badge-icon-size: 19px;
+    --center-size: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit-stage {
+    --radius-outer: 140px;
+    --radius-middle: 100px;
+    --radius-inner: 60px;
+    --badge-size: 30px;
+    --badge-icon-size: 16px;
+    --center-size: 44px;
+  }
+}
+
+/* Keyframes for Clockwise & Counter-Clockwise Continuous Orbits */
+@keyframes tech-orbit-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tech-orbit-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Base Ring Styling */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.orbit-ring-inner {
+  width: calc(var(--radius-inner) * 2);
+  height: calc(var(--radius-inner) * 2);
+  margin-top: calc(-1 * var(--radius-inner));
+  margin-left: calc(-1 * var(--radius-inner));
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  animation: tech-orbit-cw 38s linear infinite;
+}
+
+.orbit-ring-middle {
+  width: calc(var(--radius-middle) * 2);
+  height: calc(var(--radius-middle) * 2);
+  margin-top: calc(-1 * var(--radius-middle));
+  margin-left: calc(-1 * var(--radius-middle));
+  border: 1px solid rgba(99, 102, 241, 0.20);
+  animation: tech-orbit-ccw 52s linear infinite;
+}
+
+.orbit-ring-outer {
+  width: calc(var(--radius-outer) * 2);
+  height: calc(var(--radius-outer) * 2);
+  margin-top: calc(-1 * var(--radius-outer));
+  margin-left: calc(-1 * var(--radius-outer));
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  animation: tech-orbit-cw 68s linear infinite;
+}
+
+.dark .orbit-ring-inner {
+  border-color: rgba(192, 132, 252, 0.28);
+}
+
+.dark .orbit-ring-middle {
+  border-color: rgba(129, 140, 248, 0.25);
+}
+
+.dark .orbit-ring-outer {
+  border-color: rgba(251, 191, 36, 0.26);
+}
+
+/* Pause animation on hover */
+.orbit-stage:hover .orbit-ring,
+.orbit-stage:hover .orbit-counter-spin,
+.orbit-stage[data-paused="true"] .orbit-ring,
+.orbit-stage[data-paused="true"] .orbit-counter-spin {
+  animation-play-state: paused;
+}
+
+/* Orbit Slot: Positioned along the ring */
+.orbit-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--badge-size);
+  height: var(--badge-size);
+  margin-top: calc(-1 * var(--badge-size) / 2);
+  margin-left: calc(-1 * var(--badge-size) / 2);
+  pointer-events: auto;
+  transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
+}
+
+/* Counter-spin to maintain strictly upright orientation */
+.orbit-counter-cw {
+  width: 100%;
+  height: 100%;
+  animation: tech-orbit-ccw 38s linear infinite;
+}
+
+.orbit-counter-ccw {
+  width: 100%;
+  height: 100%;
+  animation: tech-orbit-cw 52s linear infinite;
+}
+
+.orbit-counter-outer-cw {
+  width: 100%;
+  height: 100%;
+  animation: tech-orbit-ccw 68s linear infinite;
+}
+
+/* Center Element */
+.orbit-center-node {
+  width: var(--center-size);
+  height: var(--center-size);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+  box-shadow: 0 0 35px rgba(139, 92, 246, 0.4), 0 10px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  cursor: default;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring,
+  .orbit-counter-cw,
+  .orbit-counter-ccw,
+  .orbit-counter-outer-cw {
+    animation: none !important;
+  }
+}

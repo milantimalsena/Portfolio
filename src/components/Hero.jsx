@@ -2,29 +2,6 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, FileText } from 'lucide-react'
 import milanPhotoSmall from '../assets/milanphoto-480.jpg'
 import milanPhotoLarge from '../assets/milanphoto-900.jpg'
-import {
-  SiReact,
-  SiNodedotjs,
-  SiMongodb,
-  SiFlutter,
-  SiFigma,
-  SiTailwindcss,
-  SiDocker,
-  SiJavascript,
-} from 'react-icons/si'
-import { FaJava } from 'react-icons/fa'
-
-const techCards = [
-  { icon: SiReact, label: 'React', x: '70%', y: '10%', delay: 0 },
-  { icon: SiNodedotjs, label: 'Node.js', x: '85%', y: '40%', delay: 0.5 },
-  { icon: FaJava, label: 'Java', x: '15%', y: '15%', delay: 1 },
-  { icon: SiMongodb, label: 'MongoDB', x: '5%', y: '55%', delay: 1.5 },
-  { icon: SiFlutter, label: 'Flutter', x: '75%', y: '72%', delay: 2 },
-  { icon: SiFigma, label: 'Figma', x: '10%', y: '80%', delay: 2.5 },
-  { icon: SiTailwindcss, label: 'Tailwind', x: '88%', y: '55%', delay: 3 },
-  { icon: SiDocker, label: 'Docker', x: '25%', y: '42%', delay: 3.5 },
-  { icon: SiJavascript, label: 'JavaScript', x: '55%', y: '5%', delay: 4 },
-]
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -122,20 +99,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {techCards.map((card) => (
-              <motion.div
-                key={card.label}
-                className="absolute hidden md:flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
-                style={{ left: card.x, top: card.y }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 + card.delay, duration: 0.6, ease: 'easeOut' }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              >
-                <card.icon className="text-gray-700 dark:text-gray-200" size={16} />
-                <span className="text-xs font-medium text-gray-700 dark:text-gray-200">{card.label}</span>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </div>

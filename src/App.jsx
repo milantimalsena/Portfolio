@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { ThemeProvider } from './components/ThemeProvider'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import TechStack from './components/TechStack'
 
 const BelowFold = lazy(() => import('./components/BelowFold'))
 const DeferredChrome = lazy(() => import('./components/DeferredChrome'))
@@ -45,6 +46,7 @@ function App() {
           <Navbar />
           <main>
             <Hero />
+            <TechStack />
             <Suspense fallback={null}>
               {showDeferredContent && <BelowFold />}
             </Suspense>
