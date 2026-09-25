@@ -104,7 +104,7 @@ const projects = [
     solution: 'Delivered a campaign web portal featuring candidate manifestos, press releases, media galleries, and constituent interaction forms.',
     contribution: 'Developed full-stack modules including dynamic manifestos, media galleries, contact submission APIs, and database persistence.',
     outcome: 'Strengthened digital constituent engagement and presented a clear campaign platform.',
-    live: 'https://gayatri-bhandari.vercel.app/',
+    live: 'https://gayatrikatwalbhandari.com/',
     github: 'https://github.com/milantimalsena',
     logo: gayatriLogo,
     gradient: 'from-blue-500/20 to-indigo-500/20',
