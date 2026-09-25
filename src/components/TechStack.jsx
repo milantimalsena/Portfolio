@@ -3,80 +3,38 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { TechLogos } from './TechLogos'
 import './TechStack.css'
 
+// Tier 1: Core Web & Frontend Foundations (Inner Orbit)
 const innerOrbitTechs = [
   {
-    name: 'OpenAI',
-    category: 'AI & Models',
-    brandColor: '#10A37F',
-    glowColor: 'rgba(16, 163, 127, 0.45)',
-    angle: 0, // top
-    logo: TechLogos.OpenAI,
-  },
-  {
     name: 'HTML5',
-    category: 'Semantic Web',
+    category: 'Markup Standard',
     brandColor: '#E34F26',
     glowColor: 'rgba(227, 79, 38, 0.45)',
-    angle: 90, // right
+    angle: 0,
     logo: TechLogos.HTML5,
   },
   {
-    name: 'Node.js',
-    category: 'Backend Runtime',
-    brandColor: '#539E43',
-    glowColor: 'rgba(83, 158, 67, 0.45)',
-    angle: 180, // bottom
-    logo: TechLogos.NodeJS,
-  },
-  {
-    name: 'MongoDB',
-    category: 'NoSQL Database',
-    brandColor: '#47A248',
-    glowColor: 'rgba(71, 162, 72, 0.45)',
-    angle: 270, // left
-    logo: TechLogos.MongoDB,
-  },
-]
-
-const middleOrbitTechs = [
-  {
-    name: 'Tailwind CSS',
-    category: 'Modern Styling',
-    brandColor: '#06B6D4',
-    glowColor: 'rgba(6, 182, 212, 0.45)',
-    angle: 300,
-    logo: TechLogos.Tailwind,
-  },
-  {
-    name: 'Figma',
-    category: 'UI/UX Design',
-    brandColor: '#F24E1E',
-    glowColor: 'rgba(242, 78, 30, 0.45)',
-    angle: 0,
-    logo: TechLogos.Figma,
-  },
-  {
-    name: 'Docker',
-    category: 'Containers',
-    brandColor: '#2496ED',
-    glowColor: 'rgba(36, 150, 237, 0.45)',
-    angle: 60,
-    logo: TechLogos.Docker,
-  },
-  {
     name: 'CSS3',
-    category: 'Styling',
+    category: 'Styling Standard',
     brandColor: '#1572B6',
     glowColor: 'rgba(21, 114, 182, 0.45)',
-    angle: 120,
+    angle: 72,
     logo: TechLogos.CSS3,
+  },
+  {
+    name: 'JavaScript',
+    category: 'Core Web Language',
+    brandColor: '#F7DF1E',
+    glowColor: 'rgba(247, 223, 30, 0.45)',
+    angle: 144,
+    logo: TechLogos.JavaScript,
   },
   {
     name: 'TypeScript',
     category: 'Typed Language',
     brandColor: '#3178C6',
     glowColor: 'rgba(49, 120, 198, 0.45)',
-    angle: 180,
+    angle: 216,
     logo: TechLogos.TypeScript,
   },
   {
@@ -84,67 +42,112 @@ const middleOrbitTechs = [
     category: 'Frontend UI',
     brandColor: '#61DAFB',
     glowColor: 'rgba(97, 218, 251, 0.45)',
-    angle: 240,
+    angle: 288,
     logo: TechLogos.React,
   },
 ]
 
-const outerOrbitTechs = [
+// Tier 2: Backend, Database & Product Design (Middle Orbit)
+const middleOrbitTechs = [
+  {
+    name: 'Node.js',
+    category: 'Backend Runtime',
+    brandColor: '#5FA04E',
+    glowColor: 'rgba(95, 160, 78, 0.45)',
+    angle: 30,
+    logo: TechLogos.NodeJS,
+  },
+  {
+    name: 'MongoDB',
+    category: 'NoSQL Database',
+    brandColor: '#47A248',
+    glowColor: 'rgba(71, 162, 72, 0.45)',
+    angle: 90,
+    logo: TechLogos.MongoDB,
+  },
   {
     name: 'Python',
-    category: 'Programming',
+    category: 'Backend & Scripting',
     brandColor: '#3776AB',
     glowColor: 'rgba(55, 118, 171, 0.45)',
-    angle: 20,
+    angle: 150,
     logo: TechLogos.Python,
   },
   {
     name: 'Java',
-    category: 'Backend & OOP',
+    category: 'Enterprise Backend',
     brandColor: '#EA2D2E',
     glowColor: 'rgba(234, 45, 46, 0.45)',
-    angle: 72,
+    angle: 210,
     logo: TechLogos.Java,
   },
   {
-    name: 'GitHub',
-    category: 'Version Control',
-    brandColor: '#24292F',
-    glowColor: 'rgba(0, 0, 0, 0.35)',
-    angle: 124,
-    logo: TechLogos.GitHub,
+    name: 'Tailwind CSS',
+    category: 'Modern Styling',
+    brandColor: '#06B6D4',
+    glowColor: 'rgba(6, 182, 212, 0.45)',
+    angle: 270,
+    logo: TechLogos.Tailwind,
   },
   {
-    name: 'cPanel',
-    category: 'Hosting & Server',
-    brandColor: '#FF6C2C',
-    glowColor: 'rgba(255, 108, 44, 0.45)',
-    angle: 175,
-    logo: TechLogos.CPanel,
+    name: 'Figma',
+    category: 'UI/UX Design',
+    brandColor: '#F24E1E',
+    glowColor: 'rgba(242, 78, 30, 0.45)',
+    angle: 330,
+    logo: TechLogos.Figma,
+  },
+]
+
+// Tier 3: Cloud, DevOps, Mobile & AI Platforms (Outer Orbit)
+const outerOrbitTechs = [
+  {
+    name: 'Docker',
+    category: 'Containerization',
+    brandColor: '#2496ED',
+    glowColor: 'rgba(36, 150, 237, 0.45)',
+    angle: 0,
+    logo: TechLogos.Docker,
   },
   {
     name: 'AWS',
-    category: 'Cloud Services',
+    category: 'Cloud Infrastructure',
     brandColor: '#FF9900',
     glowColor: 'rgba(255, 153, 0, 0.45)',
-    angle: 226,
+    angle: 60,
     logo: TechLogos.AWS,
   },
   {
-    name: 'JavaScript',
-    category: 'Core Language',
-    brandColor: '#F7DF1E',
-    glowColor: 'rgba(247, 223, 30, 0.45)',
-    angle: 278,
-    logo: TechLogos.JavaScript,
+    name: 'cPanel',
+    category: 'Hosting & Server Admin',
+    brandColor: '#FF6C2C',
+    glowColor: 'rgba(255, 108, 44, 0.45)',
+    angle: 120,
+    logo: TechLogos.CPanel,
+  },
+  {
+    name: 'GitHub',
+    category: 'Version Control & CI',
+    brandColor: '#24292F',
+    glowColor: 'rgba(0, 0, 0, 0.35)',
+    angle: 180,
+    logo: TechLogos.GitHub,
   },
   {
     name: 'Flutter',
-    category: 'Cross-Platform',
+    category: 'Cross-Platform Mobile',
     brandColor: '#02569B',
     glowColor: 'rgba(2, 86, 155, 0.45)',
-    angle: 330,
+    angle: 240,
     logo: TechLogos.Flutter,
+  },
+  {
+    name: 'OpenAI',
+    category: 'AI & Large Language Models',
+    brandColor: '#10A37F',
+    glowColor: 'rgba(16, 163, 127, 0.45)',
+    angle: 300,
+    logo: TechLogos.OpenAI,
   },
 ]
 
