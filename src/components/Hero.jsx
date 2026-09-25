@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, FileText } from 'lucide-react'
+import { ArrowUpRight, Mail } from 'lucide-react'
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import milanPhotoSmall from '../assets/milanphoto-480.jpg'
 import milanPhotoLarge from '../assets/milanphoto-900.jpg'
+
+const socialLinks = [
+  { icon: FaGithub, href: 'https://github.com/milantimalsena', label: 'GitHub' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/milan-timalsena-373782353/', label: 'LinkedIn' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/me__learn', label: 'Instagram' },
+  { icon: Mail, href: 'mailto:milantimalsena87@gmail.com', label: 'Email' },
+]
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -71,6 +79,31 @@ export default function Hero() {
               >
                 Let's Work Together
               </a>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="flex items-center gap-4 pt-1">
+              <div className="flex items-center gap-2">
+                {socialLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith('mailto:') ? '_self' : '_blank'}
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    className="p-2.5 rounded-xl bg-card border border-card-border text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 shadow-sm hover:-translate-y-0.5"
+                  >
+                    <item.icon size={18} />
+                  </a>
+                ))}
+              </div>
+              <div className="h-4 w-px bg-card-border" />
+              <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                Available for work
+              </div>
             </motion.div>
           </motion.div>
 
